@@ -130,7 +130,7 @@
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
 <script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
 
   if (isDark) {
     $(document.body).addClass('darkModel');
@@ -671,6 +671,22 @@
       
 
       
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 247 |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 1分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
     
   </div>
   
@@ -689,7 +705,7 @@
     <article class="post post-detail">
       <div class="post-content">
         <p>静态服务器搭建的博客</p>
-<h2 id="人的进步在于承认自己的不足"><a href="#人的进步在于承认自己的不足" class="headerlink" title="人的进步在于承认自己的不足"></a>人的进步在于承认自己的不足</h2><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><p>2021-09-01 23:51</p>
+<h2 id="人的进步在于承认自己的不足"><a href="#人的进步在于承认自己的不足" class="headerlink" title="人的进步在于承认自己的不足"></a>人的进步在于承认自己的不足</h2><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><p>2022-01-16 23:51</p>
 <h3 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h3><p>地球某处</p>
 <h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><p>序章</p>
 <h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><p>以前总觉得学习是一种被推着走的过程，从小学到高中，囫囵吞枣的接受着老师或外界灌输的知识，或死记或硬背，为了高考这一目标而前进，等真正到了大学没有人再推着你的时候，身后的压力突然消失，自己也变得茫然，肚子里的那点墨水根本不是自己想要了解的，抑或是和别人聊天时，才发现自己错过了很多学习的时机，所以想通过这种个人网站的方式来记录，或许人会随着时间消失，但知识不会，也有可能我现在所记录的也是以后别人学习的材料……总而言之，读万卷书，行万里路，各位一起进步吧。</p>
@@ -723,6 +739,26 @@
 <div class="post-nav">
 
 
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/heelaine/heelaine.github.io.git/medias/6.jpg" class="lazyload placeholder" data-srcset="/heelaine/heelaine.github.io.git/medias/6.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+    </div>
+    <a href="/heelaine/heelaine.github.io.git/2022/02/09/jiami/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">什么是加密算法？</div>
+      </div>
+      
+      <!-- <div class="content">
+        浏览器加密
+
+浏览器的安全一直以来是人们关注的问题，为了让网上的信息不被泄漏，做出了很多努力，其中主要包括对称加密，非对
+      </div> -->
+    </a>
+  </div>
 
 
 
@@ -1085,6 +1121,30 @@
         
           <div class="link">
             
+              
+                <a href="mailto:212502729@qq.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="https://github.com/heelaine" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=212502729" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
           </div>
         
       
@@ -1122,52 +1182,6 @@
 
 
     <!-- 渲染暗黑按钮 -->
-    
-      <div class="dark">
-  <div class="dark-content">
-    <i class="fas fa-moon" aria-hidden="true"></i>
-    <!-- <span>关灯</span> -->
-  </div>
-  
-</div>
-
-<script>
-  $(function() {
-    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
-    if (isDark) {
-      $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-    }
-    $('.dark').click(function() {
-      if ($(document.body).is('.darkModel')) {
-        $(document.body).removeClass('darkModel');
-        localStorage.setItem('dark', false);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-moon" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      } else {
-        $(document.body).addClass('darkModel');
-        localStorage.setItem('dark', true);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      }
-    })
-  })
-</script>
     
     <!-- 渲染回到顶部按钮 -->
     
@@ -1571,11 +1585,11 @@
   var utteranceCommon = {};
 
   function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
     if (isDark) {
       utteranceCommon.Theme = 'github-dark';
     } else {
-      utteranceCommon.Theme = 'github-light';
+      utteranceCommon.Theme = '';
     }
 
     return document.getElementById("gitment-container");

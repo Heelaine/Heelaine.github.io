@@ -130,7 +130,7 @@
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
 <script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
 
   if (isDark) {
     $(document.body).addClass('darkModel');
@@ -681,31 +681,31 @@
         <div class="gallery-group-main">
     
   <figure class="gallery-group">
-  <img class="gallery-group-img" src='https://pic1.zhimg.com/80/v2-23c3820e8abfb1cef689531af2dc6d09_1440w.jpg?source=1940ef5c' alt="Group Image Gallery">
+  <img class="gallery-group-img lazyload placeholder" src="https://pic1.zhimg.com/80/v2-23c3820e8abfb1cef689531af2dc6d09_1440w.jpg?source=1940ef5c" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-23c3820e8abfb1cef689531af2dc6d09_1440w.jpg?source=1940ef5c" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="Group Image Gallery">
   <figcaption>
   <div class="gallery-group-name">壁纸</div>
   <p>收藏的一些壁纸</p>
-  <a href='/heelaine/heelaine.github.io.git/bizhi'></a>
+  <a href="/heelaine/heelaine.github.io.git/bizhi"></a>
   </figcaption>
   </figure>
   
     
   <figure class="gallery-group">
-  <img class="gallery-group-img" src='https://pic1.zhimg.com/80/v2-8d542d68cbbf0e5f503da9e3f72b8447_1440w.jpg?source=1940ef5c' alt="Group Image Gallery">
+  <img class="gallery-group-img lazyload placeholder" src="https://pic1.zhimg.com/80/v2-8d542d68cbbf0e5f503da9e3f72b8447_1440w.jpg?source=1940ef5c" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-8d542d68cbbf0e5f503da9e3f72b8447_1440w.jpg?source=1940ef5c" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="Group Image Gallery">
   <figcaption>
   <div class="gallery-group-name">古典图片</div>
   <p>中国古典图片</p>
-  <a href='/heelaine/heelaine.github.io.git/gudian'></a>
+  <a href="/heelaine/heelaine.github.io.git/gudian"></a>
   </figcaption>
   </figure>
   
     
   <figure class="gallery-group">
-  <img class="gallery-group-img" src='https://pic1.zhimg.com/80/v2-56164ef0695767475935c9e019c594ae_1440w.jpg?source=1940ef5c' alt="Group Image Gallery">
+  <img class="gallery-group-img lazyload placeholder" src="https://pic1.zhimg.com/80/v2-56164ef0695767475935c9e019c594ae_1440w.jpg?source=1940ef5c" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-56164ef0695767475935c9e019c594ae_1440w.jpg?source=1940ef5c" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="Group Image Gallery">
   <figcaption>
   <div class="gallery-group-name">风景</div>
   <p>风景图片</p>
-  <a href='/heelaine/heelaine.github.io.git/fengjing'></a>
+  <a href="/heelaine/heelaine.github.io.git/fengjing"></a>
   </figcaption>
   </figure>
   
@@ -1083,6 +1083,30 @@
         
           <div class="link">
             
+              
+                <a href="mailto:212502729@qq.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="https://github.com/heelaine" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=212502729" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
           </div>
         
       
@@ -1120,52 +1144,6 @@
 
 
     <!-- 渲染暗黑按钮 -->
-    
-      <div class="dark">
-  <div class="dark-content">
-    <i class="fas fa-moon" aria-hidden="true"></i>
-    <!-- <span>关灯</span> -->
-  </div>
-  
-</div>
-
-<script>
-  $(function() {
-    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
-    if (isDark) {
-      $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-    }
-    $('.dark').click(function() {
-      if ($(document.body).is('.darkModel')) {
-        $(document.body).removeClass('darkModel');
-        localStorage.setItem('dark', false);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-moon" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      } else {
-        $(document.body).addClass('darkModel');
-        localStorage.setItem('dark', true);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      }
-    })
-  })
-</script>
     
     <!-- 渲染回到顶部按钮 -->
     
@@ -1569,11 +1547,11 @@
   var utteranceCommon = {};
 
   function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
     if (isDark) {
       utteranceCommon.Theme = 'github-dark';
     } else {
-      utteranceCommon.Theme = 'github-light';
+      utteranceCommon.Theme = '';
     }
 
     return document.getElementById("gitment-container");

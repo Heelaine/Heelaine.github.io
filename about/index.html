@@ -130,7 +130,7 @@
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
 <script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
 
   if (isDark) {
     $(document.body).addClass('darkModel');
@@ -785,6 +785,30 @@
         
           <div class="link">
             
+              
+                <a href="mailto:212502729@qq.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="https://github.com/heelaine" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=212502729" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
           </div>
         
       
@@ -822,52 +846,6 @@
 
 
     <!-- 渲染暗黑按钮 -->
-    
-      <div class="dark">
-  <div class="dark-content">
-    <i class="fas fa-moon" aria-hidden="true"></i>
-    <!-- <span>关灯</span> -->
-  </div>
-  
-</div>
-
-<script>
-  $(function() {
-    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
-    if (isDark) {
-      $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-    }
-    $('.dark').click(function() {
-      if ($(document.body).is('.darkModel')) {
-        $(document.body).removeClass('darkModel');
-        localStorage.setItem('dark', false);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-moon" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      } else {
-        $(document.body).addClass('darkModel');
-        localStorage.setItem('dark', true);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      }
-    })
-  })
-</script>
     
     <!-- 渲染回到顶部按钮 -->
     
@@ -1271,11 +1249,11 @@
   var utteranceCommon = {};
 
   function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
     if (isDark) {
       utteranceCommon.Theme = 'github-dark';
     } else {
-      utteranceCommon.Theme = 'github-light';
+      utteranceCommon.Theme = '';
     }
 
     return document.getElementById("gitment-container");

@@ -130,7 +130,7 @@
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
 <script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
 
   if (isDark) {
     $(document.body).addClass('darkModel');
@@ -701,6 +701,40 @@
           <li class="post-item" data-aos="fade-left">
             
             <div class="post-img-box">
+              <a href="/heelaine/heelaine.github.io.git/2022/02/10/tcp-udp/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" src="/heelaine/heelaine.github.io.git/medias/12.jpg" class="lazyload placeholder" data-srcset="/heelaine/heelaine.github.io.git/medias/12.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                <span class="post-date">02-10</span>
+              </div>
+              <a class="post-title" href="/heelaine/heelaine.github.io.git/2022/02/10/tcp-udp/">TCP&amp;UDP</a>
+            </div>
+          </li>
+        
+          
+          <li class="post-item" data-aos="fade-left">
+            
+            <div class="post-img-box">
+              <a href="/heelaine/heelaine.github.io.git/2022/02/09/jiami/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" src="/heelaine/heelaine.github.io.git/medias/6.jpg" class="lazyload placeholder" data-srcset="/heelaine/heelaine.github.io.git/medias/6.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                <span class="post-date">02-09</span>
+              </div>
+              <a class="post-title" href="/heelaine/heelaine.github.io.git/2022/02/09/jiami/">什么是加密算法？</a>
+            </div>
+          </li>
+        
+          
+          <li class="post-item" data-aos="fade-left">
+            
+            <div class="post-img-box">
               <a href="/heelaine/heelaine.github.io.git/2022/01/16/hello-world/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" src="/heelaine/heelaine.github.io.git/medias/14.jpg" class="lazyload placeholder" data-srcset="/heelaine/heelaine.github.io.git/medias/14.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
@@ -733,6 +767,30 @@
       
         
           <div class="link">
+            
+              
+                <a href="mailto:212502729@qq.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="https://github.com/heelaine" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=212502729" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
             
           </div>
         
@@ -771,52 +829,6 @@
 
 
     <!-- 渲染暗黑按钮 -->
-    
-      <div class="dark">
-  <div class="dark-content">
-    <i class="fas fa-moon" aria-hidden="true"></i>
-    <!-- <span>关灯</span> -->
-  </div>
-  
-</div>
-
-<script>
-  $(function() {
-    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
-    if (isDark) {
-      $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-    }
-    $('.dark').click(function() {
-      if ($(document.body).is('.darkModel')) {
-        $(document.body).removeClass('darkModel');
-        localStorage.setItem('dark', false);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-moon" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      } else {
-        $(document.body).addClass('darkModel');
-        localStorage.setItem('dark', true);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      }
-    })
-  })
-</script>
     
     <!-- 渲染回到顶部按钮 -->
     
@@ -1220,11 +1232,11 @@
   var utteranceCommon = {};
 
   function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
     if (isDark) {
       utteranceCommon.Theme = 'github-dark';
     } else {
-      utteranceCommon.Theme = 'github-light';
+      utteranceCommon.Theme = '';
     }
 
     return document.getElementById("gitment-container");

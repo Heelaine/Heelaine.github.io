@@ -4,11 +4,37 @@
   
     
     <entry>
+      <title>TCP&amp;UDP</title>
+      <link href="/heelaine/heelaine.github.io.git/2022/02/10/tcp-udp/"/>
+      <url>/heelaine/heelaine.github.io.git/2022/02/10/tcp-udp/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>什么是加密算法？</title>
+      <link href="/heelaine/heelaine.github.io.git/2022/02/09/jiami/"/>
+      <url>/heelaine/heelaine.github.io.git/2022/02/09/jiami/</url>
+      
+        <content type="html"><![CDATA[<h2 class="bamboo-h " id="浏览器加密">浏览器加密</h2><br><!-- ## 浏览器加密 --><div class="note info"><p>浏览器的安全一直以来是人们关注的问题，为了让网上的信息不被泄漏，做出了很多努力，其中主要包括对称加密，非对称加密，以及两种加密结合的方式。</p></div><h2 class="bamboo-h " id="对称加密">对称加密</h2><br><img src="/heelaine/heelaine.github.io.git/heelaine/heelaine.github.io.git/2022/02/09/jiami/heelaine.github.io.git/2022/02/09/jiami/jiami.jpg" class="lazyload placeholder" data-srcset="/heelaine/heelaine.github.io.git/heelaine/heelaine.github.io.git/2022/02/09/jiami/heelaine.github.io.git/2022/02/09/jiami/jiami.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" class title="This is an test image"><p><img src="/heelaine/heelaine.github.io.git/heelaine/heelaine.github.io.git/2022/02/09/jiami/heelaine.github.io.git/2022/02/09/jiami/jiami.jpg" class="lazyload placeholder" data-srcset="/heelaine/heelaine.github.io.git/heelaine/heelaine.github.io.git/2022/02/09/jiami/heelaine.github.io.git/2022/02/09/jiami/jiami.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="jiami"></p><h2 class="bamboo-h " id="非对称加密">非对称加密</h2><br><h2 class="bamboo-h " id="对称加密+非对称加密">对称加密+非对称加密</h2><br>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>序章</title>
       <link href="/heelaine/heelaine.github.io.git/2022/01/16/hello-world/"/>
       <url>/heelaine/heelaine.github.io.git/2022/01/16/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>静态服务器搭建的博客</p><h2 id="人的进步在于承认自己的不足"><a href="#人的进步在于承认自己的不足" class="headerlink" title="人的进步在于承认自己的不足"></a>人的进步在于承认自己的不足</h2><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><p>2021-09-01 23:51</p><h3 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h3><p>地球某处</p><h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><p>序章</p><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><p>以前总觉得学习是一种被推着走的过程，从小学到高中，囫囵吞枣的接受着老师或外界灌输的知识，或死记或硬背，为了高考这一目标而前进，等真正到了大学没有人再推着你的时候，身后的压力突然消失，自己也变得茫然，肚子里的那点墨水根本不是自己想要了解的，抑或是和别人聊天时，才发现自己错过了很多学习的时机，所以想通过这种个人网站的方式来记录，或许人会随着时间消失，但知识不会，也有可能我现在所记录的也是以后别人学习的材料……总而言之，读万卷书，行万里路，各位一起进步吧。</p>]]></content>
+        <content type="html"><![CDATA[<p>静态服务器搭建的博客</p><h2 id="人的进步在于承认自己的不足"><a href="#人的进步在于承认自己的不足" class="headerlink" title="人的进步在于承认自己的不足"></a>人的进步在于承认自己的不足</h2><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><p>2022-01-16 23:51</p><h3 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h3><p>地球某处</p><h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><p>序章</p><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><p>以前总觉得学习是一种被推着走的过程，从小学到高中，囫囵吞枣的接受着老师或外界灌输的知识，或死记或硬背，为了高考这一目标而前进，等真正到了大学没有人再推着你的时候，身后的压力突然消失，自己也变得茫然，肚子里的那点墨水根本不是自己想要了解的，抑或是和别人聊天时，才发现自己错过了很多学习的时机，所以想通过这种个人网站的方式来记录，或许人会随着时间消失，但知识不会，也有可能我现在所记录的也是以后别人学习的材料……总而言之，读万卷书，行万里路，各位一起进步吧。</p>]]></content>
       
       
       
