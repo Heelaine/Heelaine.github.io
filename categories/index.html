@@ -130,7 +130,7 @@
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
 <script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
 
   if (isDark) {
     $(document.body).addClass('darkModel');
@@ -663,6 +663,30 @@
             </div>
             <div class="category-chips">
                 
+                
+                <a href="/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="加密算法: 1">
+                    <span class="category-content"
+                        title="加密算法" style="background-color: #F8F9F9;">加密算法
+                        <span class="category-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/tcp-udp/" title="tcp&udp: 1">
+                    <span class="category-content"
+                        title="tcp&udp" style="background-color: #F5EEF8;">tcp&udp
+                        <span class="category-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/this%E7%9B%B8%E5%85%B3/" title="this相关: 1">
+                    <span class="category-content"
+                        title="this相关" style="background-color: #D7BDE2;">this相关
+                        <span class="category-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
@@ -741,6 +765,52 @@
 
 
     <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
     
     <!-- 渲染回到顶部按钮 -->
     
@@ -1144,7 +1214,7 @@
   var utteranceCommon = {};
 
   function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
     if (isDark) {
       utteranceCommon.Theme = 'github-dark';
     } else {

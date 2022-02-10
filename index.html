@@ -130,7 +130,7 @@
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
 <script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
 
   if (isDark) {
     $(document.body).addClass('darkModel');
@@ -674,13 +674,16 @@
       
         
         
+      
+        
+        
           
           <swiper-slide>
-            <div class="item swiper-lazy" data-background="/medias/12.jpg" style=" background-size: 300000px; 
+            <div class="item swiper-lazy" data-background="/medias/7.jpg" style=" background-size: 300000px; 
             background-position: left center;" style="position: relative;">
               <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
               <div class="flag" style="z-index: 2;">
-                <div class="img-mask swiper-lazy" data-background="/medias/12.jpg" style="height: 100%; background-size: cover; 
+                <div class="img-mask swiper-lazy" data-background="/medias/7.jpg" style="height: 100%; background-size: cover; 
                   background-position: center center;">
                   <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>  
                 </div>
@@ -688,10 +691,27 @@
                   <div class="flag-text-content">
                     <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
                       <a href="/2022/02/10/tcp-udp/">
-                        TCP&amp;UDP
+                        tcp&amp;udp
                       </a>
                     </div>
-                    <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"></div>
+                    <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">在了解tcp和udp之前，可以先对计算机网络做一些简单的了解。
+
+网络模型
+五层模型：
+
+物理层
+数据链路层
+网络层  (主机之间通信)
+传输层  (应用程序间通信)
+应用层 
+
+七层模型：
+
+物理层
+数据链路层
+网络层
+传输层
+会话层，表</div>
                   </div>
                   <div class="bottom-one-btn ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a href="/2022/02/10/tcp-udp/" class="read-more swiper-btn-color" style="display: inline-block; z-index:1;">阅读更多</a></div>
                 </div>
@@ -1418,17 +1438,26 @@
 	<div class="articles">
 		
 			
+		
+			
 				<div class="article-link">
 					
 					<div class="article" style="background-size: cover; 
 						background-position: center center;">
-						<img class="lazyload lazyload placeholder" src="/medias/12.jpg" class="lazyload placeholder" data-srcset="/medias/12.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+						<img class="lazyload lazyload placeholder" src="/medias/7.jpg" class="lazyload placeholder" data-srcset="/medias/7.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
 					</div>
 					<div class="text">
 						<div class="text-main">
-							<div class="title"><a href="/2022/02/10/tcp-udp/">TCP&amp;UDP</a></div>
+							<div class="title"><a href="/2022/02/10/tcp-udp/">tcp&amp;udp</a></div>
 							<div class="content">
-								
+								在了解tcp和udp之前，可以先对计算机网络做一些简单的了解。
+
+网络模型
+五层模型：
+
+物理层
+数据链路层
+网络层  
 							</div>
 						</div>
 						<a href="/2022/02/10/tcp-udp/" class="more">
@@ -1483,15 +1512,82 @@ title
             <span class="post-time">2022-02-10</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/2022/02/10/tcp-udp/">TCP&amp;UDP</a>
+            <a class="post-title-link" href="/2022/02/10/this/">认识this并手写call，apply和bind</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               <!-- 文章详情页的标签 -->
 
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
             </div>
             <div class="post-categories">
               <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/this%E7%9B%B8%E5%85%B3/">this相关</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2022/02/10/this/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/10.jpg" class="lazyload placeholder" data-srcset="/medias/10.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            认识this
+在全局作用域中，不同的环境的this有不同的指向。
+浏览器——&gt;window;
+node——&gt;&#123;&#125;
+
+ps:在node环境中，每个js脚本都被当成一个module,module——&gt;加载—
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2022/02/10/this/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2022/02/10/this/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/10.jpg" class="lazyload placeholder" data-srcset="/medias/10.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-02-10</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2022/02/10/tcp-udp/">tcp&amp;udp</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/tcp-udp/">tcp&udp</a>
+</div>
 
 
             </div>
@@ -1499,29 +1595,46 @@ title
           <div class="post-img-mobile">
             <a href="/2022/02/10/tcp-udp/" style="background-size: cover; 
               background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="/medias/12.jpg" class="lazyload placeholder" data-srcset="/medias/12.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+              <img class="lazyload lazyload placeholder" src="/medias/7.jpg" class="lazyload placeholder" data-srcset="/medias/7.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
             </a>
           </div>
           <div class="post-content">
-            
+            在了解tcp和udp之前，可以先对计算机网络做一些简单的了解。
+
+网络模型
+五层模型：
+
+物理层
+数据链路层
+网络层  (主机之间通信)
+传输层  (应用程序间通信)
+应用层 
+
+七层模型：
+
+物理层
+数据链路层
+网络层
+传输层
+会话层，表
           </div>
         </div>
         <div class="post-more">
           <a href="/2022/02/10/tcp-udp/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         <a href="/2022/02/10/tcp-udp/" style="background-size: cover; 
           background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="/medias/12.jpg" class="lazyload placeholder" data-srcset="/medias/12.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+          <img class="lazyload lazyload placeholder" src="/medias/7.jpg" class="lazyload placeholder" data-srcset="/medias/7.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
         </a>
       </div>
     </article>
   
     
-    <article class="post reveal" style="   ">
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1535,9 +1648,17 @@ title
             <div class="post-tags">
               <!-- 文章详情页的标签 -->
 
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li></ul>
+
             </div>
             <div class="post-categories">
               <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">加密算法</a>
+</div>
 
 
             </div>
@@ -1561,7 +1682,7 @@ title
         </div>
         <div class="post-more">
           <a href="/2022/02/09/jiami/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1574,7 +1695,7 @@ title
     </article>
   
     
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
+    <article class="post reveal" style="   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1611,7 +1732,7 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
         </div>
         <div class="post-more">
           <a href="/2022/01/16/hello-world/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1651,9 +1772,6 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
           <p>单身 离异 带五个娃</p>
 
         
-        
-          <p><span id="jinrishici-sentence">new year</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         
       </div>
     
@@ -1710,10 +1828,55 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
   <div class="layout_sticky">
     
       
+    <section class="widget side_category">
+      
+  <header>
+    
+      <a style="color: " href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+      <div class='content'>
+        <ul class="entry navigation">
+          
+            <li><a class="flat-box"
+              title="/categories/tcp-udp/" href="/categories/tcp-udp/"
+              id="categoriestcp-udp"
+              ><div class='name'>tcp&udp</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/categories/this%E7%9B%B8%E5%85%B3/" href="/categories/this%E7%9B%B8%E5%85%B3/"
+              id="categoriesthisE79BB8E585B3"
+              ><div class='name'>this相关</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" href="/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"
+              id="categoriesE58AA0E5AF86E7AE97E6B395"
+              ><div class='name'>加密算法</div><div class='badge'>(1)</div></a></li>
+          
+        </ul>
+      </div>
+    </section>
+  
   
     
     
       
+<section class="widget side_tagcloud">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+    <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 24px; color: #555">前端</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 24px; color: #555">浏览器</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+    </div>
+</section>
+
   
     
     
@@ -1738,9 +1901,9 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
             
 
             <div class="post-img-box">
-              <a href="/2022/02/10/tcp-udp/" class="post-img " style="background-size: cover; 
+              <a href="/2022/02/10/this/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/12.jpg" class="lazyload placeholder" data-srcset="/medias/12.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/10.jpg" class="lazyload placeholder" data-srcset="/medias/10.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1749,7 +1912,28 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
                   <span class="post-date">02-10</span>
                 
               </div>
-              <a class="post-title" href="/2022/02/10/tcp-udp/">TCP&amp;UDP</a>
+              <a class="post-title" href="/2022/02/10/this/">认识this并手写call，apply和bind</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2022/02/10/tcp-udp/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/7.jpg" class="lazyload placeholder" data-srcset="/medias/7.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">02-10</span>
+                
+              </div>
+              <a class="post-title" href="/2022/02/10/tcp-udp/">tcp&amp;udp</a>
             </div>
           </div>
         
@@ -1802,7 +1986,7 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
     
   <section class="widget side_archives">
     
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div>
+    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div>
   </section>
 
     <section class="widget side_webinfo">
@@ -1819,7 +2003,7 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>3 篇</div>
+          <div>4 篇</div>
         </div>
       
 
@@ -1841,7 +2025,7 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>1.3k 字</div>
+          <div>5.2k 字</div>
         </div>
       
 
@@ -1867,7 +2051,7 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Feb 10 2022 15:00:28 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Thu Feb 10 2022 22:53:06 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2022-02-10 日</div>
           
         </div>
@@ -2016,6 +2200,52 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
 
 
     <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
     
     <!-- 渲染回到顶部按钮 -->
     
@@ -2419,7 +2649,7 @@ Create a new post以前总觉得学习是一种被推着走的过程，从小学
   var utteranceCommon = {};
 
   function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
     if (isDark) {
       utteranceCommon.Theme = 'github-dark';
     } else {

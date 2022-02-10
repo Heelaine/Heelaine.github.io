@@ -6,7 +6,7 @@
   <link href="https://heelaine.github.io/atom.xml" rel="self"/>
   
   <link href="https://heelaine.github.io/"/>
-  <updated>2022-02-10T03:20:44.023Z</updated>
+  <updated>2022-02-10T14:49:56.565Z</updated>
   <id>https://heelaine.github.io/</id>
   
   <author>
@@ -17,15 +17,59 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>TCP&amp;UDP</title>
+    <title>认识this并手写call，apply和bind</title>
+    <link href="https://heelaine.github.io/2022/02/10/this/"/>
+    <id>https://heelaine.github.io/2022/02/10/this/</id>
+    <published>2022-02-10T14:00:22.000Z</published>
+    <updated>2022-02-10T14:49:56.565Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 class=&quot;bamboo-h &quot; id=&quot;认识this&quot;&gt;认识this&lt;/h2&gt;&lt;br&gt;
+&lt;div class=&quot;note</summary>
+        
+      
+    
+    
+    
+    <category term="this相关" scheme="https://heelaine.github.io/categories/this%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="前端" scheme="https://heelaine.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="面试" scheme="https://heelaine.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tcp&amp;udp</title>
     <link href="https://heelaine.github.io/2022/02/10/tcp-udp/"/>
     <id>https://heelaine.github.io/2022/02/10/tcp-udp/</id>
-    <published>2022-02-10T03:20:44.000Z</published>
-    <updated>2022-02-10T03:20:44.023Z</updated>
+    <published>2022-02-10T07:13:20.000Z</published>
+    <updated>2022-02-10T14:03:29.394Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;在了解tcp和udp之前，可以先对计算机网络做一些简单的了解。&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 class=&quot;bamboo-h &quot;</summary>
+        
+      
     
     
     
+    <category term="tcp&amp;udp" scheme="https://heelaine.github.io/categories/tcp-udp/"/>
     
+    
+    <category term="浏览器" scheme="https://heelaine.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    <category term="计算机网络" scheme="https://heelaine.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -34,7 +78,7 @@
     <link href="https://heelaine.github.io/2022/02/09/jiami/"/>
     <id>https://heelaine.github.io/2022/02/09/jiami/</id>
     <published>2022-02-09T15:50:11.000Z</published>
-    <updated>2022-02-10T06:35:57.970Z</updated>
+    <updated>2022-02-10T07:43:38.317Z</updated>
     
     
       
@@ -49,6 +93,12 @@
     
     
     
+    <category term="加密算法" scheme="https://heelaine.github.io/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="浏览器" scheme="https://heelaine.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    <category term="前端" scheme="https://heelaine.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

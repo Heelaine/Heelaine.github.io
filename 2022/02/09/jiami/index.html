@@ -130,7 +130,7 @@
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
 <script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
 
   if (isDark) {
     $(document.body).addClass('darkModel');
@@ -662,6 +662,41 @@
     </div>
     
     
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2022-02-09 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" class="post-detail-header_category">
+              加密算法
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 1.1k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 3分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
   </div>
   
   
@@ -695,7 +730,7 @@
 <wavy>好处：</wavy>  这样双方都可以得到安全的对称加密的钥匙，虽然公钥是明文传输的但是只要私钥被自己保管，所以可以保证钥匙的安全。这样就可以用钥匙(对称加密)进行消息的加密了。也解决了多次非对称加密的产生的时间损耗问题。  <br>
 <emp>思考</emp> ：如果中间人获取公钥之后，发送了自己的公钥，那他就能破解浏览器用他的公钥加密之后的密钥，他还能把密钥用刚才获取的公钥进行加密发送给服务器，这样双方都不会发觉密钥已经泄漏了。<br>
 <div class="note warning"><p>经过这几步操作，其实还是逃不过一个问题，如何证明你的身份，也就是说怎么证明公钥是你的？</p></div>
-<p class="p center large purple">那就是数字证书！！</p>
+<p class="p center large blue">那就是数字证书！！</p>
 <p><img src="/2022/02/09/jiami/4.jpg" class="lazyload placeholder" data-srcset="/2022/02/09/jiami/4.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="数字证书"><br>    1.CA机构拥有非对称加密的私钥和公钥。 <br>    2.CA机构对证书明文数据T进行hash。 <br>    3.对hash后的值用私钥加密，得到数字签名S。<br>    4.数字签名+明文数据=数字证书<br><img src="/2022/02/09/jiami/5.jpg" class="lazyload placeholder" data-srcset="/2022/02/09/jiami/5.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="浏览器验证"><br>    1.浏览器拿到证书，得到明文T，签名S。<br>    2.用CA机构的公钥对S解密（由于是浏览器信任的机构，所以浏览器保有它的公钥）得到S’。<br>    3.用证书里指明的hash算法对明文T进行hash得到T’。<br>    4.显然通过以上步骤，T’应当等于S‘，除非明文或签名被篡改。<br>    5.所以此时比较S’是否等于T’，等于则表明证书可信。</p>
 <p class="p warning">中间人有可能篡改该证书吗？</p>
 <p>&nbsp;&nbsp;假设中间人篡改了证书的原文，由于他没有CA机构的私钥，所以无法得到此时加密后签名，无法相应地篡改签名。浏览器收到该证书后会发现原文和签名解密后的值不一致，则说明证书已被篡改，证书不可信，从而终止向服务器传输信息，防止信息泄露给中间人。</p>
@@ -706,6 +741,18 @@
 
       </div>
       <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" class="">
+              浏览器
+            </a>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF/" class="">
+              前端
+            </a>
+          
+        </div>
         
       </div>
       
@@ -741,16 +788,23 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/12.jpg" class="lazyload placeholder" data-srcset="/medias/12.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/7.jpg" class="lazyload placeholder" data-srcset="/medias/7.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
     </div>
     <a href="/2022/02/10/tcp-udp/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">TCP&amp;UDP</div>
+        <div class="title-text">tcp&amp;udp</div>
       </div>
       
       <!-- <div class="content">
-        
+        在了解tcp和udp之前，可以先对计算机网络做一些简单的了解。
+
+网络模型
+五层模型：
+
+物理层
+数据链路层
+网络层  
       </div> -->
     </a>
   </div>
@@ -1198,6 +1252,52 @@ title
 
     <!-- 渲染暗黑按钮 -->
     
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
     <!-- 渲染回到顶部按钮 -->
     
       <div class="goTop top-btn-color" pointer>
@@ -1600,7 +1700,7 @@ title
   var utteranceCommon = {};
 
   function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
     if (isDark) {
       utteranceCommon.Theme = 'github-dark';
     } else {

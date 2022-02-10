@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>TCP&amp;UDP | heelaine</title>
+  <title>tcp&amp;udp | heelaine</title>
 
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -130,7 +130,7 @@
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
 <script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
 
   if (isDark) {
     $(document.body).addClass('darkModel');
@@ -650,14 +650,14 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('/medias/12.jpg')">
+  background-position: center center;position: relative;background-image:url('/medias/7.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        TCP&amp;UDP
+        tcp&amp;udp
       </span>
     </div>
     
@@ -669,15 +669,24 @@
       
 
       
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/tcp-udp/" class="post-detail-header_category">
+              tcp&udp
+            </a>
+          
+        </span>
+      
 
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 0 |
+            <i class="fas fa-file-text-o"></i> 字数统计: 1.8k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 1分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 6分钟 |
           </span>
   
           
@@ -704,9 +713,112 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        
+        <div class="note info"><p>在了解tcp和udp之前，可以先对计算机网络做一些简单的了解。</p></div>
+
+<h2 class="bamboo-h " id="网络模型">网络模型</h2><br>
+<p><strong>五层模型</strong>：</p>
+<ul>
+<li>物理层</li>
+<li>数据链路层</li>
+<li>网络层  (主机之间通信)</li>
+<li>传输层  (应用程序间通信)</li>
+<li>应用层 </li>
+</ul>
+<p><strong>七层模型</strong>：</p>
+<ul>
+<li>物理层</li>
+<li>数据链路层</li>
+<li>网络层</li>
+<li>传输层</li>
+<li>会话层，表示层，应用层</li>
+</ul>
+<p><strong>传输过程中文件会被拆分成多个数据包来传输</strong></p>
+<wavy>补充：</wavy>
+<ul>
+<li>mac地址：也称物理地址(硬件地址)，由网络设备制造商生产时写在硬件内部，无论接到哪个网络，都拥有相同的mac地址。</li>
+<li>IP：IP数据报送到目的主机(主机之间的逻辑通信)，计算机的地址就是ip地址 访问网站就是你的计算机向另外一台计算机请求信息,但是IP只负责传送到对方电脑，不知道哪个程序，所以在发送前会加上主机的ip地址。</li>
+<li>UDP：用户数据包协议 （通过端口号UDP把指定数据包发送给程序）（应用程序之间通信）</li>
+</ul>
+<span class="pbg yellow">udp</span>对于<span class="pbg yellow">错误的数据包</span>：udp不重发，直接丢弃当前的包，并且udp发送之后不知道能不能到达目的地。<br>
+
+<span class="pbg yellow">udp的问题</span>：1.数据包容易丢失。2.大文件拆分成小数据包传输的时候不知道如何组装这些数据包，把他们还原成完整的文件。<br>
+
+<p>而<span class="pbg yellow">tcp</span>解决了udp的问题 ：如果数据包丢失的话就重传。tcp引入了<span class="pbg yellow">数据包排序机制</span>，把打乱的数据包组合成完整的文件。所以tcp头包含了<strong>目标端口</strong>和<strong>本机端口</strong>，还提供了<strong>排序的序列号</strong>。(TCP 为了保证数据传输的可靠性，牺牲了数据包的传输速度)。所以tcp是一种<span class="pbg yellow">面向连接</span>，<span class="pbg yellow">可靠的</span>，<span class="pbg yellow">基于字节流</span>的传输层通信协议。</p>
+<h2 class="bamboo-h " id="浏览器和服务器交互过程">浏览器和服务器交互过程</h2><br>
+<p><img src="/2022/02/10/tcp-udp/1.png" class="lazyload placeholder" data-srcset="/2022/02/10/tcp-udp/1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="服务器和客户端传输过程"><br><strong>首先，建立连接阶段。</strong>这个阶段是通过“<span class="pbg yellow">三次握手</span>”来建立客户端和服务器之间的连接。TCP 提供面向连接的通信传输。面向连接是指在数据通信开始之前先做好两端之间的准备工作。所谓三次握手，是指在建立一个 TCP 连接时，客户端和服务器总共要发送<span class="pbg yellow">三个数据包</span>以确认连接的建立。<br><strong>其次，传输数据阶段。</strong>在该阶段，接收端需要对每个数据包进行确认操作，也就是接收端在接收到数据包之后，需要发送确认数据包给发送端。所以当发送端发送了一个数据包之后，<span class="pbg yellow">在规定时间内没有接收到接收端反馈的确认消息，则判断为数据包丢失，并触发发送端的重发机制</span>。同样，一个大的文件在传输过程中会被拆分成很多小的数据包，这些数据包到达接收端后，接收端会按照 TCP 头中的序号为其排序，从而保证组成完整的数据。<br><strong>最后，断开连接阶段。</strong>数据传输完毕之后，就要终止连接了，涉及到最后一个阶段“四次挥手”来保证双方都能断开连接。</p>
+<h2 class="bamboo-h " id="TCP和UDP的不同">TCP和UDP的不同</h2><br>
+<table>
+<thead>
+<tr>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可靠的</td>
+<td>不可靠的</td>
+</tr>
+<tr>
+<td>面向连接的</td>
+<td>无连接的</td>
+</tr>
+<tr>
+<td>传输效率低</td>
+<td>传输效率高</td>
+</tr>
+<tr>
+<td>对系统资源要求高</td>
+<td>对系统资源要求低</td>
+</tr>
+<tr>
+<td>少量数据</td>
+<td>大量数据</td>
+</tr>
+<tr>
+<td>每次连接只有两个端点</td>
+<td>支持一对一，一对多，多对多</td>
+</tr>
+<tr>
+<td>拥塞控制，网络拥塞会导致效率变低</td>
+<td>没有拥塞控制</td>
+</tr>
+<tr>
+<td>面向字节流，根据对方的窗口之和网络拥塞程度来决定报文段包含多少字节，如果数据块太长，可以划分短一点在传送</td>
+<td>面向报文，一次性交付一个完整报文。</td>
+</tr>
+<tr>
+<td>提供双全工通信，在发送和接受都设置缓存，临时存放数据</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 class="bamboo-h " id="三次握手">三次握手</h2><br>
+<p><img src="/2022/02/10/tcp-udp/2.png" class="lazyload placeholder" data-srcset="/2022/02/10/tcp-udp/2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="三次握手"><br><strong>第一次握手</strong><br>客户端向服务端发送连接请求报文段。该报文段中包含自身的数据通讯初始序号。请求发送后，客户端便进入 <span class="pbg yellow">SYN-SENT</span> 状态。<br><strong>第二次握手</strong><br>服务端收到连接请求报文段后，如果同意连接，则会发送一个应答，该应答中也会包含自身的数据通讯初始序号，发送完成后便进入<span class="pbg yellow">SYN-RECEIVED</span>  状态。<br><strong>第三次握手</strong><br>当客户端收到连接同意的应答后，还要向服务端发送一个确认报文。客户端发完这个报文段后便进入了<span class="pbg yellow">ESTABLISHED</span>  状态，服务端收到这个应答后也进入 <span class="pbg yellow">ESTABLISHED</span> 状态，此时连接建立成功。</p>
+<wavy>只有两次怎么办？</wavy>
+<p>如果只有 2 次的话，服务器并不清楚浏览器是否收到他发过去的信息，可能会一直发送消息。</p>
+<h2 class="bamboo-h " id="四次挥手">四次挥手</h2><br>
+<p><img src="/2022/02/10/tcp-udp/3.png" class="lazyload placeholder" data-srcset="/2022/02/10/tcp-udp/3.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="四次挥手"><br><strong>第一次挥手</strong><br>若客户端 A 认为数据发送完成，则它需要向服务端 B 发送连接释放请求。<br><strong>第二次挥手</strong><br>B 收到连接释放请求后，会告诉应用层要释放 TCP 链接。然后会发送 ACK 包，并进入 <span class="pbg yellow">CLOSE_WAIT</span> 状态，此时表明 A 到 B 的连接已经释放，不再接收 A 发的数据了。但是因为 TCP 连接是双向的，所以 B 仍旧可以发送数据给 A。<br><strong>第三次挥手</strong><br>B 如果此时还有没发完的数据会继续发送，完毕后会向 A 发送连接释放请求，然后 B 便进入<span class="pbg yellow">LAST-ACK</span>  状态。<br><strong>PS</strong>：通过延迟确认的技术(通常有时间限制，否则对方会误认为需要重传)，可以将第二次和第三次握手合并，延迟 ACK 包的发送。<br><strong>第四次挥手</strong><br>A 收到释放请求后，向 B 发送确认应答，此时 A 进入 <span class="pbg yellow">TIME-WAIT</span> 状态。该状态会持续 2MSL(最长报文段寿命，指报文段在网络中生存的时间，超时会被抛弃) 时间，若该时间段内没有 B 的重发请求的话，就进入 <span class="pbg yellow">CLOSED</span> 状态。当 B 收到确认应答后，也便进入 <span class="pbg yellow">CLOSED</span> 状态。</p>
+<h2 id="http和TCP的关系"><a href="#http和TCP的关系" class="headerlink" title="http和TCP的关系"></a>http和TCP的关系</h2><p>TCP 协议对应于传输层，而 HTTP 协议对应于应用层，从本质上来说，二者没有可比性：</p>
+<ul>
+<li>HTTP 对应于应用层，TCP 协议对应于传输层</li>
+<li>HTTP 是无状态的短连接，而 TCP 是有状态的长连接</li>
+<li>HTTP 协议是在 TCP 协议之上建立的，HTTP 在发起请求时通过 TCP 协议建立起连接服务器的通道，请求结束后，立即断开 TCP 连接</li>
+<li>TCP是传输层协议，定义的是数据传输和连接方式的规范，HTTP是应用层协议，定义的是传输数据的内容的规范。<br><img src="/2022/02/10/tcp-udp/4.png" class="lazyload placeholder" data-srcset="/2022/02/10/tcp-udp/4.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="过程"></li>
+</ul>
+
       </div>
       <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" class="">
+              浏览器
+            </a>
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="">
+              计算机网络
+            </a>
+          
+        </div>
         
       </div>
       
@@ -717,7 +829,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2022/02/10/tcp-udp/" target="_blank" title="TCP&amp;UDP">https://heelaine.github.io/2022/02/10/tcp-udp/</a>
+    <a href="/2022/02/10/tcp-udp/" target="_blank" title="tcp&amp;udp">https://heelaine.github.io/2022/02/10/tcp-udp/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -737,6 +849,27 @@
 <div class="post-nav">
 
 
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/10.jpg" class="lazyload placeholder" data-srcset="/medias/10.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+    </div>
+    <a href="/2022/02/10/this/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">认识this并手写call，apply和bind</div>
+      </div>
+      
+      <!-- <div class="content">
+        认识this
+在全局作用域中，不同的环境的this有不同的指向。
+浏览器——&gt;window;
+node——&gt;
+      </div> -->
+    </a>
+  </div>
 
 
 
@@ -1180,6 +1313,52 @@
 
     <!-- 渲染暗黑按钮 -->
     
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
     <!-- 渲染回到顶部按钮 -->
     
       <div class="goTop top-btn-color" pointer>
@@ -1582,7 +1761,7 @@
   var utteranceCommon = {};
 
   function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('');
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
     if (isDark) {
       utteranceCommon.Theme = 'github-dark';
     } else {
