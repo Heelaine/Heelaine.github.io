@@ -744,7 +744,9 @@ requestData(&#39;hhx&#39;,(res)&#x3D;&gt;&#123;
 <li>这个回调函数会被立即执行，并且传入另外两个回调函数resolve，reject</li>
 <li>当调用resolve，执行promise对象的<strong>then方法</strong>传入的回调函数</li>
 <li>当调用reject，执行promise对象的<strong>catch</strong>方法传入的回调函数</li>
-<li>*三个状态，状态一旦确定就无法更改**。<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;伪代码
+</ul>
+<p><strong>三个状态，状态一旦确定就无法更改。</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;伪代码
 function foo()&#123;
 	return new Promise((resolve,reject)&#x3D;&gt;&#123;
     &#x2F;&#x2F;进行异步请求的时候在这里面写，比如网络请求
@@ -785,10 +787,8 @@ fooPromise.then((res)&#x3D;&gt;&#123;
 	console.log(err)
 &#125;)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 class="bamboo-h " id="resolve的详解">resolve的详解</h2><br></li>
-<li><em>resolve参数</em>*</li>
-</ul>
-<p>1.普通的值或者对象<br>2.传入一个promise，那么当前的promise的状态会由当前传入的promise来决定，相当于状态进行了移交<br>3.如果传入一个对象，并且这个对象有个then方法，会直接执行then方法，状态由then来改变</p>
+<h2 class="bamboo-h " id="resolve的详解">resolve的详解</h2><br>
+<p><strong>resolve参数</strong><br>1.普通的值或者对象<br>2.传入一个promise，那么当前的promise的状态会由当前传入的promise来决定，相当于状态进行了移交<br>3.如果传入一个对象，并且这个对象有个then方法，会直接执行then方法，状态由then来改变</p>
 <pre class="line-numbers language-none"><code class="language-none">const newPromise &#x3D;new Promise((resolve,reject)&#x3D;&gt;&#123;
 
 &#125;)
@@ -816,7 +816,7 @@ new Promise((resolve,reject)&#x3D;&gt;&#123;
 <h2 class="bamboo-h " id="promise对象方法">promise对象方法</h2><br>
 <h3 class="bamboo-h " id="then方法">then方法</h3><br>
 <span class="pbg yellow">promise.then()</span>
-<pre><code>对象的方法，其实是放在&#123;% pbg yellow ,Promise.prototype.then() %&#125;
+<pre><code>对象的方法，其实是放在**Promise.prototype.then()**
 </code></pre>
 <p>1.同一个promise可以多次调用then方法，当我们的resolve方法被回调的时候，所有的then方法传入的回调函数都会被调用<br>2.then方法传入的回调函数可以有返回值，<span class="pbg yellow">他的返回值是新的promise</span>——promise链式调用的实质<br>    2.1如果返回普通值，那么普通的值会被作为一个新的promise的resolve值，做对应的回调，如果没有返回默认返回值是undefined<br>    2.2如果返回promise，那么返回的promise的状态会决定下一个then里面的状态<br>    2.3如果返回一个对象，并且该对象实现了thenable，那么thenable里面状态会决定下一个then里面的状态</p>
 <pre class="line-numbers language-none"><code class="language-none">const promise &#x3D;new Promise((resolve,reject)&#x3D;&gt;&#123;
@@ -886,12 +886,12 @@ promise.catch()
 <li>finally方法不接受参数。</li>
 </ul>
 <h2 class="bamboo-h " id="promise类方法">promise类方法</h2><br>
-<h3 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h3><p><strong>特点：</strong>把普通对象转化成promise对象</p>
+<h3 id="resolve方法"><a href="#resolve方法" class="headerlink" title="resolve方法"></a>resolve方法</h3><p><strong>特点：</strong>把普通对象转化成promise对象</p>
 <pre class="line-numbers language-none"><code class="language-none">const promise&#x3D;Promise.resolve(&#123;name:&#39;hhx&#39;&#125;)
 promise.then(res&#x3D;&gt;&#123;
 	console.log(res)
 &#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="reject"><a href="#reject" class="headerlink" title="reject"></a>reject</h3><p><strong>特点：</strong>无论传入什么值都是一样的</p>
+<h3 id="reject方法"><a href="#reject方法" class="headerlink" title="reject方法"></a>reject方法</h3><p><strong>特点：</strong>无论传入什么值都是一样的</p>
 <pre class="line-numbers language-none"><code class="language-none">const promise&#x3D;Promise.reject(&#39;失败&#39;)
 &#x2F;&#x2F;相当于
 const promise&#x3D;new Promise((resolve,reject)&#x3D;&gt;&#123;
@@ -914,7 +914,7 @@ Promise.all([p1,p2,p3,&#39;aaa&#39;]).then(res&#x3D;&gt;&#123;
 	console.log(err)
 &#125;)
 &#x2F;&#x2F;[111,222,333,&#39;aaa&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="allSettled方法"><a href="#allSettled方法" class="headerlink" title="allSettled方法"></a>allSettled方法</h3><p><strong>热点：</strong>等到所有promise都有结果，无论是成功还是失败。</p>
+<h3 id="allSettled方法"><a href="#allSettled方法" class="headerlink" title="allSettled方法"></a>allSettled方法</h3><p><strong>特点：</strong>等到所有promise都有结果，无论是成功还是失败。</p>
 <pre class="line-numbers language-none"><code class="language-none">const p1&#x3D;new Promise((resolve)&#x3D;&gt;&#123;
 	resolve(111)
 &#125;)
@@ -994,7 +994,7 @@ const promise &#x3D;new DiyPromise((resolve,reject)&#x3D;&gt;&#123;
 	reject()
     resolve()
 &#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="改良版1-0"><a href="#改良版1-0" class="headerlink" title="改良版1.0"></a>改良版1.0</h3><p><strong>方法的优化</strong><br>1.实现then多次调用<br>2.确定promise状态之后再次调用then<br>3.promise的then的链式调用  ——》then方法返回promise</p>
+<h3 id="改良版1-0"><a href="#改良版1-0" class="headerlink" title="改良版1.0"></a>改良版1.0</h3><p><strong>方法的优化</strong><br>1.实现then多次调用<br>2.确定promise状态之后再次调用then<br>3.promise的then的链式调用  ——&gt;then方法返回promise</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;then不能调用多次
 const PROMISE_STATUS_PENDING&#x3D;&#39;pending&#39;
 const PROMISE_STATUS_FULFILLED&#x3D;&#39;fulfilled&#39;
@@ -1303,7 +1303,7 @@ promise.then(res&#x3D;&gt;&#123;
 	console.log(&#39;finally&#39;)
 &#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 class="bamboo-h " id="promise手写总结">promise手写总结</h2><br>
-<p>1.promise的规范：promiseA+ <a target="_blank" rel="noopener" href="https://promisesaplus.com/">promisea+规范官网</a>。<br>2.promise类的设计：class 的方式也可以使用function的方式<br>3.构造函数的规划：</p>
+<p>1.promise的规范： <a target="_blank" rel="noopener" href="https://promisesaplus.com/">promisea+规范官网</a>。<br>2.promise类的设计：class 的方式也可以使用function的方式<br>3.构造函数的规划：</p>
 <pre class="line-numbers language-none"><code class="language-none">constructor()&#123;
     &#x2F;&#x2F;定义状态
     &#x2F;&#x2F;定义resolve，reject回调
@@ -1335,7 +1335,7 @@ promise.then(res&#x3D;&gt;&#123;
         onFinally()
     &#125;)
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>7.reject/resolve<br>8.all/allSettled<br><strong>重点：要知搭配resolve和reject什么时候执行</strong><br>all：<br>1.所有的都有结果<br>2.有一个reject<br><strong>allSettled：所有都有结果，并且一定执行resolve</strong><br>9.race/any<br>race：只要有结果，就返回<br>any：<br>1.必须等到一个resolve结果<br>2.都没有resolve，所有的都是reject</p>
+<p>7.reject/resolve<br>8.all/allSettled<br><strong>重点：要知道搭配resolve和reject什么时候执行</strong><br>all：<br>1.所有的都有结果<br>2.有一个reject<br><strong>allSettled：所有的都有结果，并且一定执行resolve</strong><br>9.race/any<br>race：只要有结果，就返回<br>any：<br>1.必须等到一个resolve结果<br>2.都没有resolve，所有的都是reject</p>
 
       </div>
       <div class="post-tags-categories">
