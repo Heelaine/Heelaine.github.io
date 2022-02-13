@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>标签 | heelaine</title>
+  <title>hexo | heelaine</title>
 
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -622,106 +622,607 @@
 </header>
         <!-- 内容区域 -->
         
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-tags" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
-
-<div class="tags-header" style="background-image:url('https://cdn.jsdelivr.net/gh/heelaine/PersonalSource/img/pageImg/biaoqian.jpg')">
-    <div class="tags-header-title">
-        tags
-    </div>
-    <div class="tags-header-desc">
+ <!-- prismjs 代码高亮 -->
+ 
     
-        <span class="title" id="tags-header-desc"></span>
-        <script>
-  function typedFn() {
-    const el = '#tags-header-desc';
-    const type = 'tag';
-    let desc = '我身体里的火车从来不会错轨，所以允许大雪，风暴，泥石流和荒谬。——余秀华'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
+    <link href="/js/prism/prism-line-numbers.css" rel="stylesheet">
+    
+        <link href="/js/prism/prism.min.css" rel="stylesheet">
+    
+
+    <style>
+        pre[class*="language-"] {
+            overflow-y: hidden;
+        }
+        .line-numbers .line-numbers-rows {
+            border: none;
+        }
+    </style>
+  
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/2.jpg')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        hexo
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2022-02-13 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/hexo%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-detail-header_category">
+              hexo注意事项
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 1.6k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 6分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="row justify-position" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <div class="note info"><p>在github上找到了yuang01大佬写的<a target="_blank" rel="noopener" href="https://yuang01.gitee.io/">hexo主题</a>进行了我个人博客的搭建，主要是自己知识的总结，在这个过程中也遇到了不少问题，所以想记录一下，也算作我搭建博客的学习心得吧。</p></div>
+
+
+<h1 id="hexo搭建博客注意事项"><a href="#hexo搭建博客注意事项" class="headerlink" title="hexo搭建博客注意事项"></a>hexo搭建博客注意事项</h1><p>谷歌了很多资料，发现可以用hexo进行静态搭建博客，我是用hexo把博客放在了我的github上面，网上有很多教程，再次不再多赘述，主要想列举一些在开发过程中遇到的问题。</p>
+<h2 class="bamboo-h " id="一些报错">一些报错</h2><br>
+<h3 id="hexo部署文章到github出现443问题"><a href="#hexo部署文章到github出现443问题" class="headerlink" title="hexo部署文章到github出现443问题"></a><strong>hexo部署文章到github出现443问题</strong></h3><p>当时在部署的时候出现443问题，下面是代码报错实例：</p>
+<pre class="line-numbers language-none"><code class="language-none">fatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;xxx&#x2F;xxx.github.io.git&#x2F;&#39;: LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 
+FATAL &#123;
+  err: Error: Spawn failed
+      at ChildProcess.&lt;anonymous&gt; (&#x2F;Users&#x2F;kevin&#x2F;Desktop&#x2F;xxx.github.io&#x2F;node_modules&#x2F;hexo-deployer-git&#x2F;node_modules&#x2F;hexo-util&#x2F;lib&#x2F;spawn.js:51:21)
+      at ChildProcess.emit (events.js:315:20)
+      at Process.ChildProcess._handle.onexit (internal&#x2F;child_process.js:277:12) &#123;
+    code: 128
+  &#125;
+&#125; Something&#39;s wrong. Maybe you can find the solution here: %s https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>解决办法：</p>
+<ul>
+<li>对_config.yml文件进行修改把deploy的地址从http换成git<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg : 以自己为例
+repository: git@github.com:heelaine&#x2F;heelaine.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="hexo部署出现TypeError-Cannot-read-property-‘trim’-of-undefined"><a href="#hexo部署出现TypeError-Cannot-read-property-‘trim’-of-undefined" class="headerlink" title="hexo部署出现TypeError: Cannot read property ‘trim’ of undefined"></a><strong>hexo部署出现TypeError: Cannot read property ‘trim’ of undefined</strong></h3><p>这个时候多半是你写入markdown的内容有误，hexo并没有识别出你的内容。<br>解决办法：</p>
+<ul>
+<li>检查文章，是不是出现格式错误或者未知字符，建议写page的时候不要写完再保存，写一段就保存一段，这样找错比较方便。</li>
+</ul>
+<h2 class="bamboo-h " id="格式化">格式化</h2><br>
+<p><strong>最好不要格式化！！</strong><br>相信很多人在开发的时候，会在vscode上面设置自己的格式化规则，我们在下载主题进行配置的时候，也会理所当然直接自动保存格式化，当初我也是这么做的，但是每次一保存就会给我报红，感觉自己改的没有问题，一保存就出错真的很心累，后来才找到原因，因为我自己设置的格式化会改变它原来主题的代码格式导致hexo不能正常运行，我关了之后再去改代码就方便多了。</p>
+<h2 class="bamboo-h " id="图片路径">图片路径</h2><br>
+<pre class="line-numbers language-none"><code class="language-none">$ npm install hexo-image-link --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在编写个人博客的时候，通常会想要插入自己想要的图片，hexo的文章编写是通过markdown的格式来实现的，我们在这里就可以用markdown的格式来插入图片!(图片描述)[图片路径]，但是图片路径需要注意。<br>解决办法：</p>
+<ul>
+<li>下载<strong>hexo-image-link</strong>包;</li>
+<li>修改**_config.yml<strong>中的</strong>post_asset_folder: true**。资源文件管理功能打开后，Hexo将会在你每一次通过 hexo new [layout] <title> 命令创建新文章时自动创建一个同名文件夹。</title></li>
+<li>通过markdown的方式引入图片，这里只需要引入相对路径即可。<pre class="line-numbers language-none"><code class="language-none">![服务器和客户端传输过程](1.png) 
+&#x2F;&#x2F;第一个括号是图片描述
+&#x2F;&#x2F;第二个括号是同名文件夹的图片名字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+一般情况下图片都能正常显示了，但是我发现我的图片还是裂开的并不能正常显示，我去检查我页面元素图片路径，发现路径有几段是重复的，这个时候只需要设置_config.yml的url就可以了<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg : 以自己为例
+url: https:&#x2F;&#x2F;heelaine.github.io&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+这样操作下来就可以发现页面能正常显示图片，并且图片路径也是正确的了。</li>
+</ul>
+<h2 class="bamboo-h " id="CDN图床">CDN图床</h2><br>
+<p>因为个人博客可能会有很多需要图片的地方，但是如果一股脑都放在本地里，由于国内访问github总是时不时抽风且怕本地资源过于冗杂，所以我尝试通过外链的方式进行引用图片。<br><strong>图床</strong>：就是专门提供存储图片的地方，有收费也有免费的，他会帮助我们进行图片的管理和优化，比如多机互备、CDN 加速、图片处理、图片鉴黄、文本识别等等。我使用的是<a target="_blank" rel="noopener" href="https://itunes.apple.com/cn/app/id1101244278?mt=12">ipic</a> 工具，免费版默认是微博图床。<br><strong>用法</strong>（主要讲解的mac用户，window应该也差不多）：</p>
+<ol>
+<li>下载ipic工具并安装</li>
+<li>桌面顶部菜单就会出现ipic图标<br>!()[ipic.jpg]</li>
+<li>点击图标选择markdown，把需要的图片拖拽到图标上</li>
+<li>这个时候图标上就会显示你需要上传的图片，单击图片就是复制图片链接</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg: 以自己为例
+![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;008i3skNgy1gz8uyzff92j30u0140gr7.jpg)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<div class="note warning"><p>可能有些人对CDN不是很了解，我也是在这次搭建过程中加深了我对cdn的理解，我们可以把cdn理解成快递点，当我们需要访问服务器上的资源的时候，有可能会遇到网站加载速度慢，资源出不来，高延迟等等问题，我们通常会通过cdn的方式进行加速，你想要访问什么资源就去最近的快递点去拿快递——最近的cdn节点获取资源，这样也能解决服务器的压力。具体的cdn的知识大家可以google一下～</p></div>
+
+<h2 class="bamboo-h " id="jsDelivr + Github">jsDelivr + Github</h2><br>
+<p>如果用惯github的人，也可以通过<span class="pbg yellow">jsDelivr+github</span>的方式。<br><strong>jsDelivr</strong>：一个免费的cdn，支持npm，GitHub，wordpress等等。<br>解决办法：</p>
+<ol>
+<li>在github上创建一个仓库</li>
+<li>把图片等静态资源push到仓库里</li>
+<li>插入图片的地方需要修改链接<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg : 以自己为例
+![图片描述](https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;用户名&#x2F;仓库名&#x2F;文件地址)
+![图片描述](https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;heelaine&#x2F;PersonalSource&#x2F;img&#x2F;lxb&#x2F;line5_2.jpg)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="pbg yellow">这种方式也能实现cdn对图片的加速</span>  </li>
+</ol>
+<h2 class="bamboo-h " id="生成page的模版">生成page的模版</h2><br>
+<p>在scaffolds文件夹中放置的是你生成new page的模版，默认生成的是post.md文件的模版，可以通过修改 <strong>_config.yml</strong>中的 <strong>default_layout</strong> 参数来指定默认布局。</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg : 以自己的为例
+---
+title: &#123;&#123; title &#125;&#125;
+date: &#123;&#123; date &#125;&#125;
+author: helaine
+tags:
+categories:
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;命令：默认生成post模版
+hexo n  &#39;文章名字&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/hexo/" class="">
+              hexo
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>heelaine</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2022/02/13/hexo/" target="_blank" title="hexo">https://heelaine.github.io/2022/02/13/hexo/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站均采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      ，转载请注明出处!
+    </li>
+    <li class="post-copyright-shuoming">
+      <strong>PS：大部分都是自己的学习总结笔记，很多东西在记录的时候并没有记录原作者，若有冒犯请告知本人。 </strong>
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/5.jpg" class="lazyload placeholder" data-srcset="/medias/5.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+    </div>
+    <a href="/2022/02/13/es6-es12/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">es6-es12</div>
+      </div>
+      
+      <!-- <div class="content">
+        es6到es12的回顾这一part主要回顾一下ECMA规范中从es6到es12的变化，包括一些比较常用的方法和api。
+
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/8.jpg" class="lazyload placeholder" data-srcset="/medias/8.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
+    </div>
+    <a href="/2022/02/13/promise/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">promise</div>
+      </div>
+      <!-- <div class="content">
+        这一part主要关于js中的promise，包括promise的基本api和用法，还有如何手写一个promise
+
+Pr
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          来都来了
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="/medias/zfb.jpg" class="lazyload placeholder" data-srcset="/medias/zfb.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="/medias/wx.jpg" class="lazyload placeholder" data-srcset="/medias/wx.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
 </script>
     
-    </div>
-    <div class="mask-box"></div>
-</div>
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
 
 
-<div id="tags" class="container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/hexo/" title="hexo: 1">
-                    <span class="tag-content"
-                        title="hexo" style="background-color: #FFF;">hexo
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/js/" title="js: 2">
-                    <span class="tag-content"
-                        title="js" style="background-color: #A3E4D7;">js
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%89%8D%E7%AB%AF/" title="前端: 5">
-                    <span class="tag-content"
-                        title="前端" style="background-color: #FEF9E7;">前端
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="浏览器: 2">
-                    <span class="tag-content"
-                        title="浏览器" style="background-color: #D5F5E3;">浏览器
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%9D%A2%E8%AF%95/" title="面试: 3">
-                    <span class="tag-content"
-                        title="面试" style="background-color: #F9EBEA;">面试
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络: 1">
-                    <span class="tag-content"
-                        title="计算机网络" style="background-color: #A3E4D7;">计算机网络
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/vue/" title="vue: 1">
-                    <span class="tag-content"
-                        title="vue" style="background-color: #85C1E9;">vue
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
+
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
+    openBtnClickFn();
+  })
+  
+</script>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>

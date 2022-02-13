@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>标签 | heelaine</title>
+  <title>vue | heelaine</title>
 
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -622,106 +622,742 @@
 </header>
         <!-- 内容区域 -->
         
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-tags" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
-
-<div class="tags-header" style="background-image:url('https://cdn.jsdelivr.net/gh/heelaine/PersonalSource/img/pageImg/biaoqian.jpg')">
-    <div class="tags-header-title">
-        tags
-    </div>
-    <div class="tags-header-desc">
+ <!-- prismjs 代码高亮 -->
+ 
     
-        <span class="title" id="tags-header-desc"></span>
-        <script>
-  function typedFn() {
-    const el = '#tags-header-desc';
-    const type = 'tag';
-    let desc = '我身体里的火车从来不会错轨，所以允许大雪，风暴，泥石流和荒谬。——余秀华'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
+    <link href="/js/prism/prism-line-numbers.css" rel="stylesheet">
+    
+        <link href="/js/prism/prism.min.css" rel="stylesheet">
+    
+
+    <style>
+        pre[class*="language-"] {
+            overflow-y: hidden;
+        }
+        .line-numbers .line-numbers-rows {
+            border: none;
+        }
+    </style>
+  
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/7.jpg')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        vue
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2022-02-13 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/vue/" class="post-detail-header_category">
+              vue
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 2.2k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 9分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="row justify-position" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <div class="note info"><p>这一part主要涉及到vue的基本面试问题</p></div>
+<h2 class="bamboo-h " id="render和template">render和template</h2><br>
+
+<p><strong>render和template的区别</strong></p>
+<ul>
+<li>Render是一种编译方式，render中有一个函数h，这个h是createElement方法，会把单文件组件进行虚拟dom的创建，然后通过render进行解析</li>
+<li>Template也是一种编译方法，但是template最终还是会通过render的方式进行编译，render的性能比template性能好，且render的函数优先级大于template render会先执行。<u>在vue源码中，template会被转化成render函数。</u> </li>
+</ul>
+<h2 class="bamboo-h " id="v-if/v-show">v-if/v-show</h2><br>
+
+<ul>
+<li><strong>v-if和v-show</strong><ul>
+<li>v-if 通过控制dom节点存在控制元素的显隐  v-show通过设置dom的display样式</li>
+<li>v-if 是真正的条件渲染 切换的时候有一个局部编译和卸载的过程，会销毁和重建内部的事件监听和子组件 v-show只是简单的css切换</li>
+<li>v-if是惰性的 如果初始条件为假 就什么也不做 如果条件为真才会进行局部编译 编译被缓存之后 切换的时候会局部卸载 v-show不管怎么样都会被编译 然后被缓存 保留dom元素</li>
+<li>v-if支持template语法 v-show不支持template语法</li>
+<li>如果频繁切换用v-show v-if有更高的切换消耗 v-show有更高的初始渲染消耗</li>
+</ul>
+</li>
+<li><strong>v-if和v-for</strong><ul>
+<li>v-if和v-for不推荐一起使用，因为v-for的优先级比v-if高，v-if会重复运行到每个v-for循环中，对每个列表进行条件渲染，可以部分渲染节点，但是不适合跳过循环的执行。</li>
+<li>*解决办法**：可以把v-if添加到父级元素上或者通过计算属性过滤掉不需要的某一项。</li>
+</ul>
+</li>
+</ul>
+<h2 class="bamboo-h " id="computed">computed</h2><br>
+
+<span class="pbg yellow">Computed</span>是计算属性， 计算一个新属性并将该属性挂在到实例上， 要引用的地方像data一样引用就行。可以不在data里声明，直接在template中绑定，默认挂载在data里。
+<p><strong>注意事项</strong></p>
+<ul>
+<li>支持缓存 当属性内数据发生变化才会重新计算 性能开销比较小</li>
+<li>不支持异步操作</li>
+<li>基于data或者父组件prop中通过计算得到的属性</li>
+<li>结果必须return出来</li>
+<li>初始化就可以被检测到并且进行计算</li>
+<li>默认走get方法 数据变化时调动set方法</li>
+</ul>
+<p><strong>使用场景</strong> :一个属性依赖于其他属性用computed，负责简单的逻辑。</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg 
+&lt;script&gt;
+export default&#123;
+	computed:&#123;
+    formData()&#123;
+    	get()&#123;
+      	return this.value
+      &#125;
+      set(obj)&#123;
+      	this.value&#x3D;obj
+      &#125;
+    &#125;,
+    getChange()&#123;
+    	return xxx
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 class="bamboo-h " id="watch">watch</h2><br>
+
+<span class="pbg yellow">Watch</span>是监听属性，监听数据的新旧变化。
+<p><strong>注意事项</strong>c</p>
+<ul>
+<li>不支持缓存，数据发生变化就会直接发生变化</li>
+<li>支持异步操作</li>
+<li>函数接受两个参数 一个new一个old</li>
+<li>监听的属性必须是data里声明的或者父组件传递的数据</li>
+</ul>
+<p><strong>使用场景</strong>： 一条数据会影响到多条数据的时候 需要异步操作的时候 负责复杂逻辑的时候<br>Watch还有很多属性默认使用的handler函数</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg 
+&lt;script&gt;
+export default&#123;
+	watch:&#123;
+   	name:&#123;
+    	handler(newName, oldName) &#123;
+      this.fullName &#x3D; newName + &#39; &#39; + this.lastName;
+    &#125;,
+      immediate: true,
+      &#x2F;&#x2F;
+      deep:true
+    &#125;
+    &#x2F;&#x2F;或者
+    &#39;name.firstName&#39;:&#123;
+    	handler(newName, oldName) &#123;
+      this.fullName &#x3D; newName + &#39; &#39; + this.lastName;
+    &#125;,
+      immediate: true,
+      &#x2F;&#x2F;
+      deep:true
+  	&#125;
+  &#125;
+&#125;
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>immediate属性： 由于watch一开始绑定的时候不会执行，只有数据发生变化的时候才会执行 如果想要在绑定的时候就执行 可以设置这个属性 默认false，比如当父组件给子组件动态传值的时候子组件props首次获取父组件传来的默认值也需要执行监听函数的时候，组件创建时立即执行。</li>
+<li>deep属性：<span class="pbg yellow">深度监听</span>。当对对象进行数据监听的时候，并不会监听到对象内部属性的变化，属性变化不会触发对象的监听函数，但是设置deep的时候监听起会层层往下遍历给对象的所有属性都加上监视器，导致性能开销很大可以通过对对象的某个属性设置监听。</li>
+</ul>
+<h2 class="bamboo-h " id="Vue 插槽">Vue 插槽</h2><br>
+<p>什么是插槽？</p>
+<ul>
+<li>插槽就是用slot包裹的标签。  <slot></slot></li>
+</ul>
+<p>什么时候用插槽？</p>
+<ul>
+<li>开发中，需要把相同的公共标签抽出来封装成公共组件，然后在不同的模块引入，但是有时候，每个模块的需求不同，对组件样式的需求也不一样，可能需要我们在组件内部进行改写，但是如果组件内部被改写，那么引入该组件的模块都会被改写，如果我们只想改写单独模块内的组件，可以使用“插槽”。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg
+&lt;button type&#x3D;&quot;submit&quot;&gt;
+  确认
+&lt;&#x2F;button&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><strong>默认插槽</strong><ul>
+<li>当我们想要组件内部大部分都渲染确认，单独组件渲染其他文本的时候，我们可以使用默认插槽。不提供插槽内容就默认渲染原来的内容，提供插槽内容就渲染提供的数据。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none"> &lt;!-- 公共组件 submit-button --&gt;
+&lt;button type&#x3D;&quot;submit&quot;&gt;
+  &lt;slot&gt;submit&lt;&#x2F;slot&gt;
+&lt;&#x2F;button&gt;
+
+ &lt;!-- 单独模块 --&gt;
+&lt;submit-button&gt;&lt;&#x2F;submit-button&gt; 这个时候会默认渲染submit
+&lt;submit-button&gt;save&lt;&#x2F;submit-button&gt; 提供内容就会渲染成save
+
+1.
+ &lt;!-- 插槽可以插入什么 --&gt;
+&lt;button type&#x3D;&quot;submit&quot;&gt;
+  &lt;slot&gt;&lt;&#x2F;slot&gt;
+&lt;&#x2F;button&gt;  如果插槽内什么都不写就会直接渲染单独模块加的内容
+
+ &lt;!-- 单独模块 --&gt;
+&lt;submit-button&gt;
+	hello world
+&lt;&#x2F;submit-button&gt; 直接渲染hello world的按钮
+
+2.
+ &lt;!-- 插槽可以添加html模版代码 可以添加其他组件 公共组件插槽可以获取到单独模块的内容 --&gt;
+&lt;submit-button&gt;
+  &lt;span&gt;我是span标签&lt;&#x2F;span&gt;
+  你好
+&lt;&#x2F;submit-button&gt;
+
+&lt;submit-button&gt;
+  &lt;table&gt;&lt;&#x2F;table&gt; 引入table组件
+  你好
+&lt;&#x2F;submit-button&gt;
+
+&lt;submit-button&gt;
+  你好 &#123;&#123;data&#125;&#125;
+&lt;&#x2F;submit-button&gt;  可以渲染模版内的数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>如果公共组件内部没有写slot，那么在模块内改写组件内部内容会被直接抛弃</li>
+<li>父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。</li>
+<li>具名插槽<ul>
+<li>我们有时候会在一个组件内使用多个插槽，为了渲染不同的插槽效果，可以给他们命名，通过name。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--公共组件 --&gt;
+&lt;template lang&#x3D;&quot;pug&quot;&gt;
+    .wrap
+        button 
+            slot 保存
+        .header
+            slot(name&#x3D;&#39;header&#39;)
+        .main
+            slot(name&#x3D;&#39;main&#39;)
+        .footer
+            slot(name&#x3D;&#39;footer&#39;)
+&lt;&#x2F;template&gt;
+
+&lt;!--单独模块 --&gt;
+&lt;template lang&#x3D;&quot;pug&quot;&gt;
+  			&lt;!--如果没有写会默认写入没有name的插槽里 --&gt;
+        submit-button 确认  
+            template(v-slot:header) 这是页头
+            template(v-slot:main) 这是内容
+            template(v-slot:footer) 这是页脚
+&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>v-slot只能添加在template上，具名插槽可以使用缩写，用#来代替</strong></p>
+<ul>
+<li>作用域插槽<ul>
+<li>单独模块需要访问公共模块里的数据，但是每个模版的内容都只在自己的作用域里编译，这歌时候我们一样让数据作为slot的一个属性进行绑定。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--单独模块 --&gt;
+&lt;template lang&#x3D;&quot;pug&quot;&gt;
+    .wrap
+        .header
+            slot(name&#x3D;&#39;header&#39;)
+        .main
+            slot(name&#x3D;&#39;main&#39;)
+        .footer
+            slot(name&#x3D;&#39;footer&#39;)
+        .content(:content&#x3D;&#39;content&#39; name&#x3D;&#39;div&#39;) &#123;&#123;content&#125;&#125;
+&lt;&#x2F;template&gt;
+&lt;script&gt;
+  export default &#123;
+    data()&#123;
+    	return&#123;
+        data:&#123;
+          content:&#39;这是公共组件的内容&#39;,
+          title:&#39;这是公共组件的标题&#39;
+        &#125;
+      	
+      &#125;
+    &#125;
+  &#125;
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>想要拿到单独模块里的数据 需要绑定到v-bind:content=’content’</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--公共组件 --&gt;
+&lt;template lang&#x3D;&quot;pug&quot;&gt;
+	 template(v-slot:default&#x3D;&#39;slotProps&#39;) &#123;&#123;slotProps.content&#125;&#125;
+&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在template定义需要拿到哪个插槽的数据，通过v-slot:name=’slotProps’进行定义(v-slot=”slotProps”) 数据都放在slotProps里</p>
+<p>当然也有简单写法：解构赋值</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--公共组件 --&gt;
+&lt;template lang&#x3D;&quot;pug&quot;&gt;
+	 template(v-slot:div&#x3D;&#39;&#123;data&#125;&#39;) &#123;&#123;data.title&#125;&#125; &#123;&#123;data.content&#125;&#125;
+&lt;&#x2F;template&gt;
+or更简写
+&lt;!--公共组件 --&gt;
+&lt;template lang&#x3D;&quot;pug&quot;&gt;
+	 template(#div&#x3D;&#39;&#123;data&#125;&#39;) &#123;&#123;data.title&#125;&#125; &#123;&#123;data.content&#125;&#125;
+&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但是不能template(#=’{data}’)   ，因为#的后面必须要求参数</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF/" class="">
+              前端
+            </a>
+          
+            <a href="/tags/%E9%9D%A2%E8%AF%95/" class="">
+              面试
+            </a>
+          
+            <a href="/tags/vue/" class="">
+              vue
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>heelaine</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2022/02/13/vue/" target="_blank" title="vue">https://heelaine.github.io/2022/02/13/vue/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站均采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      ，转载请注明出处!
+    </li>
+    <li class="post-copyright-shuoming">
+      <strong>PS：大部分都是自己的学习总结笔记，很多东西在记录的时候并没有记录原作者，若有冒犯请告知本人。 </strong>
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/5.jpg" class="lazyload placeholder" data-srcset="/medias/5.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
+    </div>
+    <a href="/2022/02/13/es6-es12/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">es6-es12</div>
+      </div>
+      <!-- <div class="content">
+        es6到es12的回顾这一part主要回顾一下ECMA规范中从es6到es12的变化，包括一些比较常用的方法和api。
+
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          来都来了
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="/medias/zfb.jpg" class="lazyload placeholder" data-srcset="/medias/zfb.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="/medias/wx.jpg" class="lazyload placeholder" data-srcset="/medias/wx.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
 </script>
     
-    </div>
-    <div class="mask-box"></div>
-</div>
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
 
 
-<div id="tags" class="container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/hexo/" title="hexo: 1">
-                    <span class="tag-content"
-                        title="hexo" style="background-color: #FFF;">hexo
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/js/" title="js: 2">
-                    <span class="tag-content"
-                        title="js" style="background-color: #A3E4D7;">js
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%89%8D%E7%AB%AF/" title="前端: 5">
-                    <span class="tag-content"
-                        title="前端" style="background-color: #FEF9E7;">前端
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" title="浏览器: 2">
-                    <span class="tag-content"
-                        title="浏览器" style="background-color: #D5F5E3;">浏览器
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%9D%A2%E8%AF%95/" title="面试: 3">
-                    <span class="tag-content"
-                        title="面试" style="background-color: #F9EBEA;">面试
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络: 1">
-                    <span class="tag-content"
-                        title="计算机网络" style="background-color: #A3E4D7;">计算机网络
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/vue/" title="vue: 1">
-                    <span class="tag-content"
-                        title="vue" style="background-color: #85C1E9;">vue
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
+
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
+    openBtnClickFn();
+  })
+  
+</script>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>

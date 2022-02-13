@@ -6,7 +6,7 @@
   <link href="https://heelaine.github.io/atom.xml" rel="self"/>
   
   <link href="https://heelaine.github.io/"/>
-  <updated>2022-02-12T20:17:57.548Z</updated>
+  <updated>2022-02-13T16:07:05.721Z</updated>
   <id>https://heelaine.github.io/</id>
   
   <author>
@@ -15,6 +15,88 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue</title>
+    <link href="https://heelaine.github.io/2022/02/13/vue/"/>
+    <id>https://heelaine.github.io/2022/02/13/vue/</id>
+    <published>2022-02-13T15:44:48.000Z</published>
+    <updated>2022-02-13T16:07:05.721Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;这一part主要涉及到vue的基本面试问题&lt;/p&gt;&lt;/div&gt;
+&lt;h2 class=&quot;bamboo-h &quot;</summary>
+        
+      
+    
+    
+    
+    <category term="vue" scheme="https://heelaine.github.io/categories/vue/"/>
+    
+    
+    <category term="前端" scheme="https://heelaine.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="面试" scheme="https://heelaine.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+    <category term="vue" scheme="https://heelaine.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>es6-es12</title>
+    <link href="https://heelaine.github.io/2022/02/13/es6-es12/"/>
+    <id>https://heelaine.github.io/2022/02/13/es6-es12/</id>
+    <published>2022-02-13T11:00:03.000Z</published>
+    <updated>2022-02-13T15:39:43.070Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;es6到es12的回顾&quot;&gt;&lt;a href=&quot;#es6到es12的回顾&quot; class=&quot;headerlink&quot; title=&quot;es6到es12的回顾&quot;&gt;&lt;/a&gt;es6到es12的回顾&lt;/h1&gt;&lt;div class=&quot;note</summary>
+        
+      
+    
+    
+    
+    <category term="es6——es12" scheme="https://heelaine.github.io/categories/es6%E2%80%94%E2%80%94es12/"/>
+    
+    
+    <category term="js" scheme="https://heelaine.github.io/tags/js/"/>
+    
+    <category term="前端" scheme="https://heelaine.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo</title>
+    <link href="https://heelaine.github.io/2022/02/13/hexo/"/>
+    <id>https://heelaine.github.io/2022/02/13/hexo/</id>
+    <published>2022-02-13T07:48:59.000Z</published>
+    <updated>2022-02-13T10:43:53.258Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;在github上找到了yuang01大佬写的&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="hexo注意事项" scheme="https://heelaine.github.io/categories/hexo%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+    
+    
+    <category term="hexo" scheme="https://heelaine.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>promise</title>
@@ -39,11 +121,11 @@
     <category term="promise" scheme="https://heelaine.github.io/categories/promise/"/>
     
     
+    <category term="js" scheme="https://heelaine.github.io/tags/js/"/>
+    
     <category term="前端" scheme="https://heelaine.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="面试" scheme="https://heelaine.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-    <category term="js" scheme="https://heelaine.github.io/tags/js/"/>
     
   </entry>
   
@@ -127,9 +209,9 @@
     <category term="加密算法" scheme="https://heelaine.github.io/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="浏览器" scheme="https://heelaine.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
     <category term="前端" scheme="https://heelaine.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="浏览器" scheme="https://heelaine.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
     
   </entry>
   
