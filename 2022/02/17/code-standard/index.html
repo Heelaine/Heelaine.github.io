@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>vue | heelaine</title>
+  <title>code standard | heelaine</title>
 
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -650,21 +650,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('/medias/7.jpg')">
+  background-position: center center;position: relative;background-image:url('/medias/5.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        vue
+        code standard
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2022-02-13 |
+          <i class="fas fa-calendar"></i> 发表于：2022-02-17 |
         </span>
       
 
@@ -672,8 +672,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/vue/" class="post-detail-header_category">
-              vue
+            <a href="/categories/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="post-detail-header_category">
+              代码规范
             </a>
           
         </span>
@@ -682,11 +682,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 2.2k |
+            <i class="fas fa-file-text-o"></i> 字数统计: 924 |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 9分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 4分钟 |
           </span>
   
           
@@ -713,251 +713,116 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <div class="note info"><p>这一part主要涉及到vue的基本面试问题</p></div>
-<h2 class="bamboo-h " id="render和template">render和template</h2><br>
+        <h1 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h1><div class="note info"><p>这一part主要讲的是平常代码的规范及其配置，包括eslint，stylelint和prettier。</p></div>
 
-<p><strong>render和template的区别</strong></p>
-<ul>
-<li>Render是一种编译方式，render中有一个函数h，这个h是createElement方法，会把单文件组件进行虚拟dom的创建，然后通过render进行解析</li>
-<li>Template也是一种编译方法，但是template最终还是会通过render的方式进行编译，render的性能比template性能好，且render的函数优先级大于template render会先执行。<u>在vue源码中，template会被转化成render函数。</u> </li>
-</ul>
-<h2 class="bamboo-h " id="v-if/v-show">v-if/v-show</h2><br>
+<h2 class="bamboo-h " id="eslint">eslint</h2><br> 
+<p><strong>1.下载eslint（vscode 插件）</strong><br><code>npm install eslint --save-dev</code></p>
+<p><strong>2.基本配置</strong><br>root: true<br>env：环境<br>extends：扩展包,会包括一些写好的规则<br>parserOptions: 可解析的选项</p>
+<pre class="line-numbers language-none"><code class="language-none">extends: [&quot;plugin:vue&#x2F;essential&quot;, &quot;eslint:recommended&quot;,&#39;@vue&#x2F;airbnb&#39;],
+parserOptions: &#123;
+		parser: &quot;babel-eslint&quot;,
+&#125;, &#x2F;&#x2F;支持 es5 之外的语法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>rules:校验规则</p>
+<p><strong>3.rules 的选项</strong><br>‘xxx 规则’：三种选项</p>
 <ul>
-<li><strong>v-if和v-show</strong><ul>
-<li>v-if 通过控制dom节点存在控制元素的显隐  v-show通过设置dom的display样式</li>
-<li>v-if 是真正的条件渲染 切换的时候有一个局部编译和卸载的过程，会销毁和重建内部的事件监听和子组件 v-show只是简单的css切换</li>
-<li>v-if是惰性的 如果初始条件为假 就什么也不做 如果条件为真才会进行局部编译 编译被缓存之后 切换的时候会局部卸载 v-show不管怎么样都会被编译 然后被缓存 保留dom元素</li>
-<li>v-if支持template语法 v-show不支持template语法</li>
-<li>如果频繁切换用v-show v-if有更高的切换消耗 v-show有更高的初始渲染消耗</li>
+<li>“off” or 0 - 关</li>
+<li>“warn” or 1 - 警告 </li>
+<li>“error” or 2 - 错误</li>
 </ul>
-</li>
-<li><strong>v-if和v-for</strong><ul>
-<li>v-if和v-for不推荐一起使用，因为v-for的优先级比v-if高，v-if会重复运行到每个v-for循环中，对每个列表进行条件渲染，可以部分渲染节点，但是不适合跳过循环的执行。</li>
-<li>*解决办法**：可以把v-if添加到父级元素上或者通过计算属性过滤掉不需要的某一项。</li>
+<p><strong>4.常见的 rules</strong><br>4.1 句末分号<br>semi:该规则有两个选项，一个字符串选项和一个对象选项。<br><strong>字符串选项</strong>：</p>
+<ul>
+<li>“always”（默认）在语句末尾需要分号</li>
+<li>“never”不允许使用分号作为语句的结尾（除了消除以[、(、/、+或开头的语句的歧义-）</li>
 </ul>
-</li>
+<p><strong>对象选项</strong>（当”always”）：</p>
+<ul>
+<li>“omitLastInOneLineBlock”: true 忽略块中的最后一个分号，其中它的大括号（以及块的内容）在同一行中</li>
 </ul>
-<h2 class="bamboo-h " id="computed">computed</h2><br>
+<p><strong>对象选项</strong>（当”never”）：</p>
+<ul>
+<li>“beforeStatementContinuationChars”: “any”[（默认）如果下一行以、(、/、+或开头，则忽略语句末尾的分号（或缺少分号）-。</li>
+<li>“beforeStatementContinuationChars”: “always”[如果下一行以、(、/、+或开头，则在语句末尾需要分号-。</li>
+<li>“beforeStatementContinuationChars”: “never”如果即使下一行以[, (, /,+或开头也不会造成 ASI 危险，则不允许使用分号作为语句的结尾-。<br><code>semi:[&#39;error&#39;,&#39;never&#39;]</code></li>
+</ul>
+<h2 class="bamboo-h " id="stylelint">stylelint</h2><br> 
+<h3 id="1-下载相关"><a href="#1-下载相关" class="headerlink" title="1.下载相关"></a>1.下载相关</h3><p>1.1下载 stylelint</p>
+<p><code>npm install stylelint --save-dev</code><br><code>custom-property-no-missing-var-function //如果不是最新版本会报错</code></p>
+<p>1.2下载配置规则</p>
+<p>官方提供两套标准<br><code>stylelint-config-recommended //包含可能报错的rule，code format的css标准</code><br><code>stylelint-config-standard //继承于recommend，一些常见的css书写标准</code><br><code>stylelint-config-standard-scss //解析scss的包,普通的stylelint只能解析css文件</code><br><code>stylelint-config-recommended-vue //解析vue的包,如果不下载这个包会报错</code><br><strong>unknown word:CssSyntaxError</strong> 识别不了vue文件<br>1.3下载 “stylelint-order”: “^5.0.0”  配置规则 尝试校验</p>
+<h3 id="2-以scss文件为例-gt-校验scss文件"><a href="#2-以scss文件为例-gt-校验scss文件" class="headerlink" title="2.以scss文件为例====&gt;校验scss文件"></a>2.以scss文件为例====&gt;校验scss文件</h3><p>下载安装：<br>“sass”: “^1.49.7”,<br>“sass-loader”: “^7.3.1”,</p>
+<h3 id="3-在package-json-gt-编写配置文件"><a href="#3-在package-json-gt-编写配置文件" class="headerlink" title="3.在package.json====&gt;编写配置文件"></a>3.在package.json====&gt;编写配置文件</h3><p><code>&quot;lint:style&quot;: &quot;stylelint \&quot;src/**/*.(css|scss|vue)\&quot; --fix&quot;</code><br>匹配src文件夹下的css/scss/vue文件</p>
+<ul>
+<li>如果出现TypeError: Class extends value undefined is not a constructor or null #5</li>
+<li><em>解决：</em>*<br><code>npm install —save-dev postcss@8</code><br>附上<a target="_blank" rel="noopener" href="https://github.com/stylelint-scss/stylelint-config-standard-scss/issues/5">原帖地址</a></li>
+</ul>
+<p><strong>弃用,下面的方法已弃用</strong></p>
+<h3 id="4-下载stylelint插件，保存的时候自动修复。-插件有问题弃用"><a href="#4-下载stylelint插件，保存的时候自动修复。-插件有问题弃用" class="headerlink" title="4.下载stylelint插件，保存的时候自动修复。(插件有问题弃用)"></a>4.下载stylelint插件，保存的时候自动修复。(插件有问题弃用)</h3><p>配置：setting.json</p>
+<pre class="line-numbers language-none"><code class="language-none">&quot;editor.codeActionsOnSave&quot;: &#123;
+       &quot;source.fixAll&quot;: true,
+   &#125;,
+ &quot;stylelint.validate&quot;: [
+       &quot;css&quot;,
+       &quot;less&quot;,
+       &quot;postcss&quot;,
+       &quot;scss&quot;,
+       &quot;vue&quot;,
+       &quot;sass&quot;
+   ],<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="pbg yellow">Computed</span>是计算属性， 计算一个新属性并将该属性挂在到实例上， 要引用的地方像data一样引用就行。可以不在data里声明，直接在template中绑定，默认挂载在data里。
-<p><strong>注意事项</strong></p>
-<ul>
-<li>支持缓存 当属性内数据发生变化才会重新计算 性能开销比较小</li>
-<li>不支持异步操作</li>
-<li>基于data或者父组件prop中通过计算得到的属性</li>
-<li>结果必须return出来</li>
-<li>初始化就可以被检测到并且进行计算</li>
-<li>默认走get方法 数据变化时调动set方法</li>
+<h3 id="5-忽略文件-gt-stylelintignore-js"><a href="#5-忽略文件-gt-stylelintignore-js" class="headerlink" title="5.忽略文件====&gt;stylelintignore.js"></a>5.忽略文件====&gt;stylelintignore.js</h3><ul>
+<li>dist</li>
+<li>node_modules</li>
+<li>package.json<br>ps：eslint也可以配置忽略文件。</li>
 </ul>
-<p><strong>使用场景</strong> :一个属性依赖于其他属性用computed，负责简单的逻辑。</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg 
-&lt;script&gt;
-export default&#123;
-	computed:&#123;
-    formData()&#123;
-    	get()&#123;
-      	return this.value
-      &#125;
-      set(obj)&#123;
-      	this.value&#x3D;obj
-      &#125;
-    &#125;,
-    getChange()&#123;
-    	return xxx
-    &#125;
+<div class="note warning"><p>如何在在commit之前触发校验规则？使用预提交！</p></div>
+<h2 class="bamboo-h " id="预提交">预提交</h2><br>
+<p><strong>通过git hook+husky+lint-staged来实现</strong><br>1.下载husky<br><code>npm i husky -D --registry=https://registry.npm.taobao.org</code><br>2.配置package.json</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;在script下面一行配置
+&quot;husky&quot;: &#123;
+  &quot;hooks&quot;: &#123;
+    &quot;pre-commit&quot;: &quot;echo \&quot;git commit trigger husky pre-commit hook\&quot; &quot;
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 class="bamboo-h " id="watch">watch</h2><br>
-
-<span class="pbg yellow">Watch</span>是监听属性，监听数据的新旧变化。
-<p><strong>注意事项</strong>c</p>
-<ul>
-<li>不支持缓存，数据发生变化就会直接发生变化</li>
-<li>支持异步操作</li>
-<li>函数接受两个参数 一个new一个old</li>
-<li>监听的属性必须是data里声明的或者父组件传递的数据</li>
-</ul>
-<p><strong>使用场景</strong>： 一条数据会影响到多条数据的时候 需要异步操作的时候 负责复杂逻辑的时候<br>Watch还有很多属性默认使用的handler函数</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg 
-&lt;script&gt;
-export default&#123;
-	watch:&#123;
-   	name:&#123;
-    	handler(newName, oldName) &#123;
-      this.fullName &#x3D; newName + &#39; &#39; + this.lastName;
-    &#125;,
-      immediate: true,
-      &#x2F;&#x2F;
-      deep:true
+&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>pre-commit</strong>：可以在commit之前执行echo &quot;git commit trigger husky pre-commit hook&quot;<br>3.下载lint-staged<br><code>npm i lint-staged prettier -D --registry=https://registry.npm.taobao.org</code><br>4.配置lint-staged,在package.json中配置</p>
+<pre class="line-numbers language-none"><code class="language-none">&quot;lint-staged&quot;: &#123;
+    &quot;src&#x2F;**&#x2F;*.&#123;js,vue&#125;&quot;: [
+      &quot;prettier --write&quot;,
+      &quot;eslint --cache --fix&quot;
+    ],
+    &quot;src&#x2F;**&#x2F;*.&#123;vue,scss&#125;&quot;: [
+      &quot;stylelint --fix&quot;
+    ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="pbg yellow">最终模版</span>
+<pre class="line-numbers language-none"><code class="language-none">&quot;husky&quot;: &#123;
+    &quot;hooks&quot;: &#123;
+      &quot;pre-commit&quot;: &quot;echo &#39;git commit trigger husky pre-commit hook&#39; &amp;&amp; lint-staged&quot;
     &#125;
-    &#x2F;&#x2F;或者
-    &#39;name.firstName&#39;:&#123;
-    	handler(newName, oldName) &#123;
-      this.fullName &#x3D; newName + &#39; &#39; + this.lastName;
-    &#125;,
-      immediate: true,
-      &#x2F;&#x2F;
-      deep:true
-  	&#125;
-  &#125;
-&#125;
-&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>immediate属性： 由于watch一开始绑定的时候不会执行，只有数据发生变化的时候才会执行 如果想要在绑定的时候就执行 可以设置这个属性 默认false，比如当父组件给子组件动态传值的时候子组件props首次获取父组件传来的默认值也需要执行监听函数的时候，组件创建时立即执行。</li>
-<li>deep属性：<span class="pbg yellow">深度监听</span>。当对对象进行数据监听的时候，并不会监听到对象内部属性的变化，属性变化不会触发对象的监听函数，但是设置deep的时候监听起会层层往下遍历给对象的所有属性都加上监视器，导致性能开销很大可以通过对对象的某个属性设置监听。</li>
-</ul>
-<h2 class="bamboo-h " id="Vue 插槽">Vue 插槽</h2><br>
-<p>什么是插槽？</p>
-<ul>
-<li>插槽就是用slot包裹的标签。  <slot></slot></li>
-</ul>
-<p>什么时候用插槽？</p>
-<ul>
-<li>开发中，需要把相同的公共标签抽出来封装成公共组件，然后在不同的模块引入，但是有时候，每个模块的需求不同，对组件样式的需求也不一样，可能需要我们在组件内部进行改写，但是如果组件内部被改写，那么引入该组件的模块都会被改写，如果我们只想改写单独模块内的组件，可以使用“插槽”。</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;eg
-&lt;button type&#x3D;&quot;submit&quot;&gt;
-  确认
-&lt;&#x2F;button&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;,
+&quot;lint-staged&quot;: &#123;
+	&quot;src&#x2F;**&#x2F;*.&#123;js,vue&#125;&quot;: [
+		&quot;prettier --write&quot;,
+		&quot;eslint --cache --fix&quot;,
+	],
+	&quot;src&#x2F;**&#x2F;*.&#123;vue,scss&#125;&quot;: [
+      &quot;stylelint --fix&quot;
+  ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li><strong>默认插槽</strong><ul>
-<li>当我们想要组件内部大部分都渲染确认，单独组件渲染其他文本的时候，我们可以使用默认插槽。不提供插槽内容就默认渲染原来的内容，提供插槽内容就渲染提供的数据。</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none"> &lt;!-- 公共组件 submit-button --&gt;
-&lt;button type&#x3D;&quot;submit&quot;&gt;
-  &lt;slot&gt;submit&lt;&#x2F;slot&gt;
-&lt;&#x2F;button&gt;
-
- &lt;!-- 单独模块 --&gt;
-&lt;submit-button&gt;&lt;&#x2F;submit-button&gt; 这个时候会默认渲染submit
-&lt;submit-button&gt;save&lt;&#x2F;submit-button&gt; 提供内容就会渲染成save
-
-1.
- &lt;!-- 插槽可以插入什么 --&gt;
-&lt;button type&#x3D;&quot;submit&quot;&gt;
-  &lt;slot&gt;&lt;&#x2F;slot&gt;
-&lt;&#x2F;button&gt;  如果插槽内什么都不写就会直接渲染单独模块加的内容
-
- &lt;!-- 单独模块 --&gt;
-&lt;submit-button&gt;
-	hello world
-&lt;&#x2F;submit-button&gt; 直接渲染hello world的按钮
-
-2.
- &lt;!-- 插槽可以添加html模版代码 可以添加其他组件 公共组件插槽可以获取到单独模块的内容 --&gt;
-&lt;submit-button&gt;
-  &lt;span&gt;我是span标签&lt;&#x2F;span&gt;
-  你好
-&lt;&#x2F;submit-button&gt;
-
-&lt;submit-button&gt;
-  &lt;table&gt;&lt;&#x2F;table&gt; 引入table组件
-  你好
-&lt;&#x2F;submit-button&gt;
-
-&lt;submit-button&gt;
-  你好 &#123;&#123;data&#125;&#125;
-&lt;&#x2F;submit-button&gt;  可以渲染模版内的数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>如果公共组件内部没有写slot，那么在模块内改写组件内部内容会被直接抛弃</li>
-<li>父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。</li>
-<li>具名插槽<ul>
-<li>我们有时候会在一个组件内使用多个插槽，为了渲染不同的插槽效果，可以给他们命名，通过name。</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">&lt;!--公共组件 --&gt;
-&lt;template lang&#x3D;&quot;pug&quot;&gt;
-    .wrap
-        button 
-            slot 保存
-        .header
-            slot(name&#x3D;&#39;header&#39;)
-        .main
-            slot(name&#x3D;&#39;main&#39;)
-        .footer
-            slot(name&#x3D;&#39;footer&#39;)
-&lt;&#x2F;template&gt;
-
-&lt;!--单独模块 --&gt;
-&lt;template lang&#x3D;&quot;pug&quot;&gt;
-  			&lt;!--如果没有写会默认写入没有name的插槽里 --&gt;
-        submit-button 确认  
-            template(v-slot:header) 这是页头
-            template(v-slot:main) 这是内容
-            template(v-slot:footer) 这是页脚
-&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>v-slot只能添加在template上，具名插槽可以使用缩写，用#来代替</strong></p>
-<ul>
-<li>作用域插槽<ul>
-<li>单独模块需要访问公共模块里的数据，但是每个模版的内容都只在自己的作用域里编译，这歌时候我们一样让数据作为slot的一个属性进行绑定。</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">&lt;!--单独模块 --&gt;
-&lt;template lang&#x3D;&quot;pug&quot;&gt;
-    .wrap
-        .header
-            slot(name&#x3D;&#39;header&#39;)
-        .main
-            slot(name&#x3D;&#39;main&#39;)
-        .footer
-            slot(name&#x3D;&#39;footer&#39;)
-        .content(:content&#x3D;&#39;content&#39; name&#x3D;&#39;div&#39;) &#123;&#123;content&#125;&#125;
-&lt;&#x2F;template&gt;
-&lt;script&gt;
-  export default &#123;
-    data()&#123;
-    	return&#123;
-        data:&#123;
-          content:&#39;这是公共组件的内容&#39;,
-          title:&#39;这是公共组件的标题&#39;
-        &#125;
-      	
-      &#125;
-    &#125;
-  &#125;
-&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>想要拿到单独模块里的数据 需要绑定到v-bind:content=’content’</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;!--公共组件 --&gt;
-&lt;template lang&#x3D;&quot;pug&quot;&gt;
-	 template(v-slot:default&#x3D;&#39;slotProps&#39;) &#123;&#123;slotProps.content&#125;&#125;
-&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在template定义需要拿到哪个插槽的数据，通过v-slot:name=’slotProps’进行定义(v-slot=”slotProps”) 数据都放在slotProps里</p>
-<p>当然也有简单写法：解构赋值</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;!--公共组件 --&gt;
-&lt;template lang&#x3D;&quot;pug&quot;&gt;
-	 template(v-slot:div&#x3D;&#39;&#123;data&#125;&#39;) &#123;&#123;data.title&#125;&#125; &#123;&#123;data.content&#125;&#125;
-&lt;&#x2F;template&gt;
-or更简写
-&lt;!--公共组件 --&gt;
-&lt;template lang&#x3D;&quot;pug&quot;&gt;
-	 template(#div&#x3D;&#39;&#123;data&#125;&#39;) &#123;&#123;data.title&#125;&#125; &#123;&#123;data.content&#125;&#125;
-&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>但是不能template(#=’{data}’)   ，因为#的后面必须要求参数</p>
+<p>本文参考链接:<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5d7e0e744a56">链接1</a><br><a target="_blank" rel="noopener" href="https://neveryu.github.io/2020/06/10/husky-lint-staged/">链接2</a>  </p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/%E5%89%8D%E7%AB%AF/" class="">
-              前端
+            <a href="/tags/vscode/" class="">
+              vscode
             </a>
           
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" class="">
-              面试
-            </a>
-          
-            <a href="/tags/vue/" class="">
-              vue
+            <a href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="">
+              代码规范
             </a>
           
         </div>
@@ -971,7 +836,7 @@ or更简写
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2022/02/13/vue/" target="_blank" title="vue">https://heelaine.github.io/2022/02/13/vue/</a>
+    <a href="/2022/02/17/code-standard/" target="_blank" title="code standard">https://heelaine.github.io/2022/02/17/code-standard/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -996,18 +861,20 @@ or更简写
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/5.jpg" class="lazyload placeholder" data-srcset="/medias/5.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/10.jpg" class="lazyload placeholder" data-srcset="/medias/10.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
     </div>
-    <a href="/2022/02/17/code-standard/" class="post-nav-link">
+    <a href="/2022/02/17/git/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">code standard</div>
+        <div class="title-text">git</div>
       </div>
       
       <!-- <div class="content">
-        代码规范这一part主要讲的是平常代码的规范及其配置，包括eslint，stylelint和prettier。
+        git的使用这一part主要关于git的使用和基本步骤。
 
-esl
+git不同情况的使用企业项目
+这个时候一般都是有代码和分支
+
       </div> -->
     </a>
   </div>
@@ -1018,16 +885,20 @@ esl
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/5.jpg" class="lazyload placeholder" data-srcset="/medias/5.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/7.jpg" class="lazyload placeholder" data-srcset="/medias/7.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
     </div>
-    <a href="/2022/02/13/es6-es12/" class="post-nav-link">
+    <a href="/2022/02/13/vue/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">es6-es12</div>
+        <div class="title-text">vue</div>
       </div>
       <!-- <div class="content">
-        es6到es12的回顾这一part主要回顾一下ECMA规范中从es6到es12的变化，包括一些比较常用的方法和api。
+        这一part主要涉及到vue的基本面试问题
+render和template
 
+render和template的区别
+
+R
       </div> -->
     </a>
   </div>

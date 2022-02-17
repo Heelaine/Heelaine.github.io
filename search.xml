@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>git</title>
+      <link href="/2022/02/17/git/"/>
+      <url>/2022/02/17/git/</url>
+      
+        <content type="html"><![CDATA[<h1 id="git的使用"><a href="#git的使用" class="headerlink" title="git的使用"></a>git的使用</h1><div class="note info"><p>这一part主要关于git的使用和基本步骤。</p></div><h2 id="git不同情况的使用"><a href="#git不同情况的使用" class="headerlink" title="git不同情况的使用"></a>git不同情况的使用</h2><h3 class="bamboo-h " id="企业项目">企业项目</h3><br><p><strong>这个时候一般都是有代码和分支</strong></p><ul><li>1.拉取代码到本地 git clone</li><li>2.在本地新建个人分支并切换：git checkout -b dev //dev是分支名字</li><li>3.关联本地分支和远程分支<br><code>git branch --set-upstream-to=origin/本地分支对应的远程分支  你当前的本地分支</code></li><li>4.git pull 拉取最新代码</li><li>5.在该分支上进行代码的add和commit</li><li>6.git push origin 分支名字</li></ul><h3 class="bamboo-h " id="个人项目">个人项目</h3><br><h4 id="通过github新建项目"><a href="#通过github新建项目" class="headerlink" title="通过github新建项目"></a>通过github新建项目</h4><p>1.在github上新建仓库<br><img src="/2022/02/17/git/1.png" class="lazyload placeholder" data-srcset="/2022/02/17/git/1.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="新建仓库"><br>2.在本地 vscode 下载<br><code>git clone 仓库地址</code><br>3.编写代码<br>4.暂存<br><code>git add .</code><br>5.提交<br><code>git commit -m &#39;提交信息&#39;</code><br>6.关联本地分支和远程分支<br><code>git branch --set-upstream-to=origin/本地分支对应的远程分支  你当前的本地分支</code><br>7.推送代码<br><code>git push origin 分支</code></p><h4 id="通过本地新建项目"><a href="#通过本地新建项目" class="headerlink" title="通过本地新建项目"></a>通过本地新建项目</h4><p>需要自己初始化一个项目，多出.git目录，下面保存的是版本信息。<br><code>git init</code><br>后面的步骤如图上,但是要关联本地仓库和远程仓库<br><code>git remote add origin 仓库地址 //关联远程库</code></p><h4 id="把已有项目和github上关联"><a href="#把已有项目和github上关联" class="headerlink" title="把已有项目和github上关联"></a>把已有项目和github上关联</h4><p><strong>这个时候一般都是有代码和分支</strong><br>1.需要自己选择创建新分支还是到master分支上</p><ul><li>直接git push会报错,需要将本地分支关联到远程分支<br>  <strong>报错：更新被拒绝，因为远程仓库包含您本地尚不存在的提交。这通常是因为另外一个仓库已向该引用进行了推送。再次推送前，您可能需要先整合远程变更</strong></li></ul><p>2.提示远程仓库没有本地的代码，所以拉取代码</p><ul><li>git pull 拉取最新代码<br>  <strong>提示信息,当前分支没有跟踪信息,请指定您要合并哪一个分支</strong><br>因为在执行git pull, git push操作时不知道指定对应的哪个远程分支，你只要没有显示指定，git pull的时候，就会提示你。<br>解决方法:<br><code>git branch --set-upstream-to=origin/本地分支对应的远程分支  你当前的本地分支    </code>    </li></ul><h2 id="常见的git命令使用"><a href="#常见的git命令使用" class="headerlink" title="常见的git命令使用"></a>常见的git命令使用</h2><p><code>git config  —list //显示git配置</code><br><code>git remote -v  //查看远程仓库详细信息</code><br><code>git status //查看仓库状况</code><br><code>git branch -r //列出所有远程分支</code><br><code>git branch -a //列出所有本地分支和远程分支</code><br><code>git reset 版本号 //回退版本</code><br><code>git checkout -b dev //创建并切换到dev分支</code><br><code>git merge dev //把dev分支合并到当前分支上</code></p><ul><li>git pull和git fetch的区别<ul><li><code>git fetch  //是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。</code></li><li><code>git pull  //则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。</code></li></ul></li></ul><p><code>git branch --unset-upstream //撤销本地分支与远程分支的映射关系</code><br><code>git branch -vv //查看本地分支和远程分支的映射关系</code><br><code>git log —oneline —graph //查看git 分支 tree</code><br><code>git checkout . //恢复暂存区的所有文件到工作区</code></p><p><code>git rebase //分支劈叉</code> <a href="https://www.jianshu.com/p/f7ed3dd0d2d8">解释1</a>  <a href="https://www.bilibili.com/video/av51229455?zw">解释2</a></p><h3 class="bamboo-h " id="commit格式">commit格式</h3><br><p><img src="/2022/02/17/git/feat.png" class="lazyload placeholder" data-srcset="/2022/02/17/git/feat.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="commit"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> git的使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>code standard</title>
+      <link href="/2022/02/17/code-standard/"/>
+      <url>/2022/02/17/code-standard/</url>
+      
+        <content type="html"><![CDATA[<h1 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h1><div class="note info"><p>这一part主要讲的是平常代码的规范及其配置，包括eslint，stylelint和prettier。</p></div><h2 class="bamboo-h " id="eslint">eslint</h2><br> <p><strong>1.下载eslint（vscode 插件）</strong><br><code>npm install eslint --save-dev</code></p><p><strong>2.基本配置</strong><br>root: true<br>env：环境<br>extends：扩展包,会包括一些写好的规则<br>parserOptions: 可解析的选项</p><pre class="line-numbers language-none"><code class="language-none">extends: [&quot;plugin:vue&#x2F;essential&quot;, &quot;eslint:recommended&quot;,&#39;@vue&#x2F;airbnb&#39;],parserOptions: &#123;parser: &quot;babel-eslint&quot;,&#125;, &#x2F;&#x2F;支持 es5 之外的语法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>rules:校验规则</p><p><strong>3.rules 的选项</strong><br>‘xxx 规则’：三种选项</p><ul><li>“off” or 0 - 关</li><li>“warn” or 1 - 警告 </li><li>“error” or 2 - 错误</li></ul><p><strong>4.常见的 rules</strong><br>4.1 句末分号<br>semi:该规则有两个选项，一个字符串选项和一个对象选项。<br><strong>字符串选项</strong>：</p><ul><li>“always”（默认）在语句末尾需要分号</li><li>“never”不允许使用分号作为语句的结尾（除了消除以[、(、/、+或开头的语句的歧义-）</li></ul><p><strong>对象选项</strong>（当”always”）：</p><ul><li>“omitLastInOneLineBlock”: true 忽略块中的最后一个分号，其中它的大括号（以及块的内容）在同一行中</li></ul><p><strong>对象选项</strong>（当”never”）：</p><ul><li>“beforeStatementContinuationChars”: “any”[（默认）如果下一行以、(、/、+或开头，则忽略语句末尾的分号（或缺少分号）-。</li><li>“beforeStatementContinuationChars”: “always”[如果下一行以、(、/、+或开头，则在语句末尾需要分号-。</li><li>“beforeStatementContinuationChars”: “never”如果即使下一行以[, (, /,+或开头也不会造成 ASI 危险，则不允许使用分号作为语句的结尾-。<br><code>semi:[&#39;error&#39;,&#39;never&#39;]</code></li></ul><h2 class="bamboo-h " id="stylelint">stylelint</h2><br> <h3 id="1-下载相关"><a href="#1-下载相关" class="headerlink" title="1.下载相关"></a>1.下载相关</h3><p>1.1下载 stylelint</p><p><code>npm install stylelint --save-dev</code><br><code>custom-property-no-missing-var-function //如果不是最新版本会报错</code></p><p>1.2下载配置规则</p><p>官方提供两套标准<br><code>stylelint-config-recommended //包含可能报错的rule，code format的css标准</code><br><code>stylelint-config-standard //继承于recommend，一些常见的css书写标准</code><br><code>stylelint-config-standard-scss //解析scss的包,普通的stylelint只能解析css文件</code><br><code>stylelint-config-recommended-vue //解析vue的包,如果不下载这个包会报错</code><br><strong>unknown word:CssSyntaxError</strong> 识别不了vue文件<br>1.3下载 “stylelint-order”: “^5.0.0”  配置规则 尝试校验</p><h3 id="2-以scss文件为例-gt-校验scss文件"><a href="#2-以scss文件为例-gt-校验scss文件" class="headerlink" title="2.以scss文件为例====&gt;校验scss文件"></a>2.以scss文件为例====&gt;校验scss文件</h3><p>下载安装：<br>“sass”: “^1.49.7”,<br>“sass-loader”: “^7.3.1”,</p><h3 id="3-在package-json-gt-编写配置文件"><a href="#3-在package-json-gt-编写配置文件" class="headerlink" title="3.在package.json====&gt;编写配置文件"></a>3.在package.json====&gt;编写配置文件</h3><p><code>&quot;lint:style&quot;: &quot;stylelint \&quot;src/**/*.(css|scss|vue)\&quot; --fix&quot;</code><br>匹配src文件夹下的css/scss/vue文件</p><ul><li>如果出现TypeError: Class extends value undefined is not a constructor or null #5</li><li><em>解决：</em>*<br><code>npm install —save-dev postcss@8</code><br>附上<a href="https://github.com/stylelint-scss/stylelint-config-standard-scss/issues/5">原帖地址</a></li></ul><p><strong>弃用,下面的方法已弃用</strong></p><h3 id="4-下载stylelint插件，保存的时候自动修复。-插件有问题弃用"><a href="#4-下载stylelint插件，保存的时候自动修复。-插件有问题弃用" class="headerlink" title="4.下载stylelint插件，保存的时候自动修复。(插件有问题弃用)"></a>4.下载stylelint插件，保存的时候自动修复。(插件有问题弃用)</h3><p>配置：setting.json</p><pre class="line-numbers language-none"><code class="language-none">&quot;editor.codeActionsOnSave&quot;: &#123;       &quot;source.fixAll&quot;: true,   &#125;, &quot;stylelint.validate&quot;: [       &quot;css&quot;,       &quot;less&quot;,       &quot;postcss&quot;,       &quot;scss&quot;,       &quot;vue&quot;,       &quot;sass&quot;   ],<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="5-忽略文件-gt-stylelintignore-js"><a href="#5-忽略文件-gt-stylelintignore-js" class="headerlink" title="5.忽略文件====&gt;stylelintignore.js"></a>5.忽略文件====&gt;stylelintignore.js</h3><ul><li>dist</li><li>node_modules</li><li>package.json<br>ps：eslint也可以配置忽略文件。</li></ul><div class="note warning"><p>如何在在commit之前触发校验规则？使用预提交！</p></div><h2 class="bamboo-h " id="预提交">预提交</h2><br><p><strong>通过git hook+husky+lint-staged来实现</strong><br>1.下载husky<br><code>npm i husky -D --registry=https://registry.npm.taobao.org</code><br>2.配置package.json</p><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;在script下面一行配置&quot;husky&quot;: &#123;  &quot;hooks&quot;: &#123;    &quot;pre-commit&quot;: &quot;echo \&quot;git commit trigger husky pre-commit hook\&quot; &quot;  &#125;&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>pre-commit</strong>：可以在commit之前执行echo &quot;git commit trigger husky pre-commit hook&quot;<br>3.下载lint-staged<br><code>npm i lint-staged prettier -D --registry=https://registry.npm.taobao.org</code><br>4.配置lint-staged,在package.json中配置</p><pre class="line-numbers language-none"><code class="language-none">&quot;lint-staged&quot;: &#123;    &quot;src&#x2F;**&#x2F;*.&#123;js,vue&#125;&quot;: [      &quot;prettier --write&quot;,      &quot;eslint --cache --fix&quot;    ],    &quot;src&#x2F;**&#x2F;*.&#123;vue,scss&#125;&quot;: [      &quot;stylelint --fix&quot;    ]&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><span class="pbg yellow">最终模版</span><pre class="line-numbers language-none"><code class="language-none">&quot;husky&quot;: &#123;    &quot;hooks&quot;: &#123;      &quot;pre-commit&quot;: &quot;echo &#39;git commit trigger husky pre-commit hook&#39; &amp;&amp; lint-staged&quot;    &#125;&#125;,&quot;lint-staged&quot;: &#123;&quot;src&#x2F;**&#x2F;*.&#123;js,vue&#125;&quot;: [&quot;prettier --write&quot;,&quot;eslint --cache --fix&quot;,],&quot;src&#x2F;**&#x2F;*.&#123;vue,scss&#125;&quot;: [      &quot;stylelint --fix&quot;  ]&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>本文参考链接:<br><a href="https://www.jianshu.com/p/5d7e0e744a56">链接1</a><br><a href="https://neveryu.github.io/2020/06/10/husky-lint-staged/">链接2</a>  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 代码规范 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vscode </tag>
+            
+            <tag> 代码规范 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue</title>
       <link href="/2022/02/13/vue/"/>
       <url>/2022/02/13/vue/</url>

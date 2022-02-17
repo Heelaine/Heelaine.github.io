@@ -6,7 +6,7 @@
   <link href="https://heelaine.github.io/atom.xml" rel="self"/>
   
   <link href="https://heelaine.github.io/"/>
-  <updated>2022-02-13T16:07:05.721Z</updated>
+  <updated>2022-02-17T09:50:46.300Z</updated>
   <id>https://heelaine.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git</title>
+    <link href="https://heelaine.github.io/2022/02/17/git/"/>
+    <id>https://heelaine.github.io/2022/02/17/git/</id>
+    <published>2022-02-17T08:40:33.000Z</published>
+    <updated>2022-02-17T09:50:46.300Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;git的使用&quot;&gt;&lt;a href=&quot;#git的使用&quot; class=&quot;headerlink&quot; title=&quot;git的使用&quot;&gt;&lt;/a&gt;git的使用&lt;/h1&gt;&lt;div class=&quot;note</summary>
+        
+      
+    
+    
+    
+    <category term="git的使用" scheme="https://heelaine.github.io/categories/git%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    
+    
+    <category term="git" scheme="https://heelaine.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>code standard</title>
+    <link href="https://heelaine.github.io/2022/02/17/code-standard/"/>
+    <id>https://heelaine.github.io/2022/02/17/code-standard/</id>
+    <published>2022-02-17T07:51:48.000Z</published>
+    <updated>2022-02-17T08:39:28.386Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;代码规范&quot;&gt;&lt;a href=&quot;#代码规范&quot; class=&quot;headerlink&quot; title=&quot;代码规范&quot;&gt;&lt;/a&gt;代码规范&lt;/h1&gt;&lt;div class=&quot;note</summary>
+        
+      
+    
+    
+    
+    <category term="代码规范" scheme="https://heelaine.github.io/categories/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+    
+    <category term="vscode" scheme="https://heelaine.github.io/tags/vscode/"/>
+    
+    <category term="代码规范" scheme="https://heelaine.github.io/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
   
   <entry>
     <title>vue</title>
